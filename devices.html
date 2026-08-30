@@ -261,16 +261,14 @@
         }
 
         .filter-panel {
-            background: rgba(255, 255, 255, 0.98);
+            background: #FFFFFF;
             border: 1px solid var(--border);
             border-radius: var(--radius-card);
             padding: 18px 20px;
             margin-bottom: 24px;
             box-shadow: var(--shadow-card);
-            position: sticky;
-            top: 10px;
-            z-index: 40;
-            backdrop-filter: blur(12px);
+            position: relative;
+            z-index: 10;
             animation: fadeInUp 0.6s var(--transition);
         }
 
@@ -589,10 +587,11 @@
             }
 
             .filter-panel {
-                padding: 12px;
+                padding: 14px 12px;
                 border-radius: 14px;
-                margin-bottom: 14px;
-                top: 6px;
+                margin-bottom: 16px;
+                position: relative !important;
+                top: auto !important;
             }
 
             .search-sort-row {
