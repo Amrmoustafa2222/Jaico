@@ -1,0 +1,2538 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>منظومة حصر ومواصفات الأجهزة واللابتوبات | IT Asset Management</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@500;600;700;800&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+    
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <style>
+        :root {
+            --primary: #FF5500;
+            --primary-hover: #E04B00;
+            --primary-bg: #FFF5F0;
+            --primary-border: #FFD6C4;
+            --secondary: #0284C7;
+            --secondary-bg: #F0F9FF;
+            --secondary-border: #BAE6FD;
+            --success: #16A34A;
+            --success-bg: #F0FDF4;
+            --bg-body: #F8FAFC;
+            --bg-card: #FFFFFF;
+            --bg-inner: #F1F5F9;
+            --text-title: #0F172A;
+            --text-body: #334155;
+            --text-muted: #64748B;
+            --text-light: #94A3B8;
+            --border: #E2E8F0;
+            --border-hover: #CBD5E1;
+            --border-light: #F1F5F9;
+            --shadow-card: 0 4px 20px -2px rgba(15, 23, 42, 0.06), 0 2px 6px -1px rgba(15, 23, 42, 0.03);
+            --shadow-hover: 0 16px 32px -4px rgba(15, 23, 42, 0.12), 0 6px 12px -2px rgba(15, 23, 42, 0.05);
+            --radius-card: 18px;
+            --radius-btn: 10px;
+            --radius-pill: 9999px;
+            --font-ar: 'Cairo', system-ui, -apple-system, sans-serif;
+            --font-en: 'Plus Jakarta Sans', system-ui, sans-serif;
+            --font-mono: 'JetBrains Mono', monospace;
+            --transition: 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        body {
+            background-color: var(--bg-body);
+            color: var(--text-body);
+            font-family: var(--font-ar);
+            min-height: 100vh;
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(18px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes floatLogo {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-4px);
+            }
+        }
+
+        .container {
+            max-width: 1360px;
+            margin: 0 auto;
+            padding: 24px 16px 80px 16px;
+        }
+
+        @media (min-width: 768px) {
+            .container {
+                padding: 40px 24px 100px 24px;
+            }
+        }
+
+        .page-header {
+            background: #FFFFFF;
+            border: 1px solid var(--border);
+            border-radius: var(--radius-card);
+            padding: 34px 28px;
+            box-shadow: var(--shadow-card);
+            margin-bottom: 24px;
+            position: relative;
+            overflow: hidden;
+            background-image: 
+                radial-gradient(circle at 10% 20%, rgba(255, 85, 0, 0.03) 0%, transparent 40%),
+                radial-gradient(circle at 90% 80%, rgba(2, 132, 199, 0.03) 0%, transparent 40%),
+                linear-gradient(to right, rgba(0, 0, 0, 0.02) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(0, 0, 0, 0.02) 1px, transparent 1px);
+            background-size: 100% 100%, 100% 100%, 24px 24px, 24px 24px;
+            animation: fadeInUp 0.5s var(--transition);
+        }
+
+        .page-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            left: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary), #FFA07A, #FF5500);
+        }
+
+        .company-brand-header {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+
+        .main-company-logo {
+            max-height: 120px;
+            width: auto;
+            object-fit: contain;
+            filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.06));
+            transition: transform 0.3s ease;
+        }
+
+        .main-company-logo:hover {
+            transform: scale(1.03);
+        }
+
+        .page-title {
+            font-size: clamp(1.5rem, 2.5vw, 2.1rem);
+            font-weight: 900;
+            color: var(--text-title);
+            line-height: 1.3;
+            margin-bottom: 6px;
+            text-align: center;
+        }
+
+        .kpi-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 14px;
+            margin-top: 26px;
+            padding-top: 22px;
+            border-top: 1px dashed var(--border);
+        }
+
+        .kpi-card {
+            position: relative;
+            background: rgba(255, 255, 255, 0.75);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.95);
+            box-shadow: 0 8px 24px rgba(15, 23, 42, 0.04), inset 0 1px 0 rgba(255, 255, 255, 0.8);
+            border-radius: 16px;
+            padding: 16px 18px;
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+            animation: fadeInUp 0.6s var(--transition) both;
+            overflow: hidden;
+        }
+
+        .kpi-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            left: 0;
+            height: 3px;
+            opacity: 0.9;
+            transition: height 0.3s ease;
+        }
+
+        .kpi-card.kpi-total::before { background: linear-gradient(90deg, #FF5500, #FFA07A); }
+        .kpi-card.kpi-laptops::before { background: linear-gradient(90deg, #0284C7, #38BDF8); }
+        .kpi-card.kpi-pcs::before { background: linear-gradient(90deg, #10B981, #34D399); }
+        .kpi-card.kpi-workstations::before { background: linear-gradient(90deg, #8B5CF6, #C084FC); }
+
+        .kpi-card:nth-child(1) { animation-delay: 0.05s; }
+        .kpi-card:nth-child(2) { animation-delay: 0.1s; }
+        .kpi-card:nth-child(3) { animation-delay: 0.15s; }
+        .kpi-card:nth-child(4) { animation-delay: 0.2s; }
+
+        .kpi-card:hover {
+            transform: translateY(-4px);
+            background: rgba(255, 255, 255, 0.95);
+            box-shadow: 0 16px 32px rgba(15, 23, 42, 0.08), inset 0 1px 0 rgba(255, 255, 255, 1);
+            border-color: rgba(255, 255, 255, 1);
+        }
+
+        .kpi-card:hover::before {
+            height: 4px;
+        }
+
+        .kpi-icon {
+            width: 46px;
+            height: 46px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+        }
+
+        .kpi-card:hover .kpi-icon {
+            transform: scale(1.12) rotate(4deg);
+        }
+
+        .kpi-total .kpi-icon {
+            background: linear-gradient(135deg, rgba(255, 85, 0, 0.12), rgba(255, 85, 0, 0.04));
+            color: #FF5500;
+            border: 1px solid rgba(255, 85, 0, 0.2);
+        }
+
+        .kpi-laptops .kpi-icon {
+            background: linear-gradient(135deg, rgba(2, 132, 199, 0.12), rgba(2, 132, 199, 0.04));
+            color: #0284C7;
+            border: 1px solid rgba(2, 132, 199, 0.2);
+        }
+
+        .kpi-pcs .kpi-icon {
+            background: linear-gradient(135deg, rgba(16, 185, 129, 0.12), rgba(16, 185, 129, 0.04));
+            color: #10B981;
+            border: 1px solid rgba(16, 185, 129, 0.2);
+        }
+
+        .kpi-workstations .kpi-icon {
+            background: linear-gradient(135deg, rgba(139, 92, 246, 0.12), rgba(139, 92, 246, 0.04));
+            color: #8B5CF6;
+            border: 1px solid rgba(139, 92, 246, 0.2);
+        }
+
+        .kpi-val {
+            font-size: 1.55rem;
+            font-weight: 900;
+            font-family: var(--font-en);
+            color: var(--text-title);
+            line-height: 1.1;
+        }
+
+        .kpi-label {
+            font-size: 0.8rem;
+            font-weight: 700;
+            color: var(--text-muted);
+            margin-top: 2px;
+        }
+
+        .filter-panel {
+            background: rgba(255, 255, 255, 0.98);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-card);
+            padding: 18px 20px;
+            margin-bottom: 24px;
+            box-shadow: var(--shadow-card);
+            position: sticky;
+            top: 10px;
+            z-index: 40;
+            backdrop-filter: blur(12px);
+            animation: fadeInUp 0.6s var(--transition);
+        }
+
+        .search-sort-row {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 12px;
+        }
+
+        .search-field {
+            flex: 1;
+            position: relative;
+        }
+
+        .search-field input {
+            width: 100%;
+            background: var(--bg-body);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 11px 40px 11px 14px;
+            font-family: var(--font-ar);
+            font-size: 0.92rem;
+            color: var(--text-title);
+            transition: all 0.2s;
+        }
+
+        .search-field input:focus {
+            outline: none;
+            background: #FFFFFF;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px var(--primary-light);
+        }
+
+        .search-field .search-icon {
+            position: absolute;
+            right: 14px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--text-light);
+            pointer-events: none;
+        }
+
+        .sort-field {
+            position: relative;
+            flex-shrink: 0;
+        }
+
+        .sort-field select {
+            appearance: none;
+            background: var(--bg-body);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 11px 34px 11px 14px;
+            font-family: var(--font-ar);
+            font-size: 0.88rem;
+            font-weight: 600;
+            color: var(--text-title);
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .sort-field select:focus {
+            outline: none;
+            border-color: var(--primary);
+            background: #FFFFFF;
+        }
+
+        .sort-field .sort-arrow {
+            position: absolute;
+            right: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--text-muted);
+            pointer-events: none;
+        }
+
+        .dept-filter-row {
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 8px;
+            padding-top: 12px;
+            margin-top: 8px;
+            border-top: 1px dashed var(--border);
+        }
+
+        .dept-filter-label {
+            font-size: 0.84rem;
+            font-weight: 800;
+            color: var(--text-title);
+            white-space: nowrap;
+            margin-left: 6px;
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        .dept-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: var(--bg-body);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-pill);
+            padding: 6px 13px;
+            font-size: 0.83rem;
+            font-weight: 700;
+            color: var(--text-body);
+            cursor: pointer;
+            white-space: nowrap;
+            transition: all 0.22s cubic-bezier(0.16, 1, 0.3, 1);
+            user-select: none;
+            box-shadow: 0 1px 2px rgba(0, 0, 0, 0.02);
+        }
+
+        .dept-btn:hover {
+            background: #FFFFFF;
+            border-color: var(--primary);
+            color: var(--primary);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 10px rgba(255, 85, 0, 0.15);
+        }
+
+        .dept-btn.active {
+            background: var(--primary);
+            border-color: var(--primary);
+            color: #FFFFFF;
+            box-shadow: 0 4px 12px rgba(255, 85, 0, 0.28);
+            transform: scale(1.02);
+        }
+
+        .dept-badge-count {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-width: 20px;
+            height: 20px;
+            padding: 0 6px;
+            border-radius: var(--radius-pill);
+            background: rgba(0, 0, 0, 0.07);
+            font-family: var(--font-en);
+            font-size: 0.72rem;
+            font-weight: 800;
+        }
+
+        .dept-btn.active .dept-badge-count {
+            background: #FFFFFF;
+            color: var(--primary);
+        }
+
+        .custody-filter-row {
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 8px;
+            padding-top: 10px;
+            margin-top: 10px;
+            border-top: 1px dashed var(--border-light);
+        }
+
+        .custody-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: var(--bg-body);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-pill);
+            padding: 6px 13px;
+            font-size: 0.82rem;
+            font-weight: 700;
+            color: var(--text-body);
+            cursor: pointer;
+            white-space: nowrap;
+            transition: all 0.22s cubic-bezier(0.16, 1, 0.3, 1);
+            user-select: none;
+        }
+
+        .custody-btn:hover {
+            background: #FFFFFF;
+            border-color: var(--secondary);
+            color: var(--secondary);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 10px rgba(2, 132, 199, 0.15);
+        }
+
+        .custody-btn.active {
+            background: var(--secondary);
+            border-color: var(--secondary);
+            color: #FFFFFF;
+            box-shadow: 0 4px 12px rgba(2, 132, 199, 0.28);
+            transform: scale(1.02);
+        }
+
+        .custody-btn.active .dept-badge-count {
+            background: #FFFFFF;
+            color: var(--secondary);
+        }
+
+        .custody-badge {
+            font-size: 0.72rem;
+            font-weight: 700;
+            padding: 3px 8px;
+            border-radius: 6px;
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            white-space: nowrap;
+        }
+
+        .custody-badge.signed {
+            background: #F0FDF4;
+            color: #16A34A;
+            border: 1px solid #BBF7D0;
+        }
+
+        .custody-badge.unsigned {
+            background: #FFFBEB;
+            color: #D97706;
+            border: 1px solid #FDE68A;
+        }
+
+        .custody-badge.stock {
+            background: #FAF5FF;
+            color: #9333EA;
+            border: 1px solid #E9D5FF;
+        }
+
+        .results-bar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 20px;
+            padding: 0 4px;
+        }
+
+        .results-bar .count-title {
+            font-size: 0.95rem;
+            font-weight: 700;
+            color: var(--text-title);
+        }
+
+        .results-bar .count-title span {
+            color: var(--primary);
+            font-family: var(--font-en);
+            font-size: 1.15rem;
+        }
+
+        .cards-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 20px;
+        }
+
+        @media (min-width: 680px) {
+            .cards-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (min-width: 1100px) {
+            .cards-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        @media (max-width: 640px) {
+            .container {
+                padding: 14px 12px 60px 12px;
+            }
+
+            .page-header {
+                padding: 20px 14px;
+                border-radius: 14px;
+                margin-bottom: 14px;
+            }
+
+            .main-company-logo {
+                max-height: 70px;
+            }
+
+            .page-title {
+                font-size: 1.3rem;
+            }
+
+            .kpi-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 8px;
+                margin-top: 14px;
+                padding-top: 12px;
+            }
+
+            .kpi-card {
+                padding: 10px 12px;
+                gap: 10px;
+                border-radius: 10px;
+            }
+
+            .kpi-icon {
+                width: 36px;
+                height: 36px;
+                border-radius: 8px;
+            }
+
+            .kpi-icon i {
+                width: 18px;
+                height: 18px;
+            }
+
+            .kpi-val {
+                font-size: 1.2rem;
+            }
+
+            .kpi-label {
+                font-size: 0.72rem;
+            }
+
+            .filter-panel {
+                padding: 12px;
+                border-radius: 14px;
+                margin-bottom: 14px;
+                top: 6px;
+            }
+
+            .search-sort-row {
+                flex-direction: column;
+                gap: 8px;
+                margin-bottom: 10px;
+            }
+
+            .search-field, .sort-field {
+                width: 100%;
+            }
+
+            .sort-field select {
+                width: 100%;
+                font-size: 0.85rem;
+                padding: 10px 32px 10px 12px;
+            }
+
+            .dept-filter-row {
+                gap: 6px;
+                padding: 2px 2px 4px 2px;
+            }
+
+            .dept-filter-label {
+                display: none;
+            }
+
+            .dept-btn {
+                padding: 6px 12px;
+                font-size: 0.8rem;
+                gap: 6px;
+            }
+
+            .dept-badge-count {
+                min-width: 18px;
+                height: 18px;
+                font-size: 0.7rem;
+                padding: 0 4px;
+            }
+
+            .cards-grid {
+                gap: 16px;
+            }
+
+            .device-card {
+                border-radius: 14px;
+            }
+
+            .card-top {
+                padding: 12px 14px;
+            }
+
+            .card-visual {
+                min-height: 150px;
+                padding: 16px 12px;
+            }
+
+            .card-visual img {
+                max-height: 120px;
+            }
+
+            .card-content {
+                padding: 14px;
+                gap: 12px;
+            }
+
+            .model-name {
+                font-size: 1rem;
+            }
+
+            .spec-row {
+                padding: 8px 10px;
+            }
+
+            .spec-label-group {
+                font-size: 0.78rem;
+            }
+
+            .spec-val-ltr {
+                font-size: 0.8rem;
+            }
+        }
+
+        .device-card {
+            background: #FFFFFF;
+            border: 1px solid var(--border);
+            border-radius: var(--radius-card);
+            box-shadow: var(--shadow-card);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            transition: all var(--transition);
+            position: relative;
+            animation: fadeInUp 0.5s var(--transition) both;
+        }
+
+        .device-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-hover);
+            border-color: var(--primary-border);
+        }
+
+        .card-top {
+            padding: 16px 20px;
+            background: #FFFFFF;
+            border-bottom: 1px solid #F1F5F9;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 12px;
+        }
+
+        .emp-profile {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            min-width: 0;
+        }
+
+        .emp-info {
+            display: flex;
+            flex-direction: column;
+            min-width: 0;
+        }
+
+        .emp-name {
+            font-size: 1rem;
+            font-weight: 800;
+            color: var(--text-title);
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            line-height: 1.3;
+        }
+
+        .emp-role {
+            font-size: 0.8rem;
+            color: var(--primary);
+            font-weight: 600;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .dept-chip {
+            font-size: 0.72rem;
+            font-weight: 700;
+            color: var(--text-muted);
+            background: #F8FAFC;
+            border: 1px solid var(--border);
+            padding: 4px 10px;
+            border-radius: var(--radius-pill);
+            white-space: nowrap;
+            flex-shrink: 0;
+        }
+
+        .card-visual {
+            padding: 24px 20px;
+            background: #FFFFFF !important;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 170px;
+            position: relative;
+            border-bottom: 1px solid #F1F5F9;
+        }
+
+        .card-visual img {
+            max-width: 85%;
+            max-height: 140px;
+            object-fit: contain;
+            transition: transform 0.4s ease;
+            mix-blend-mode: multiply;
+            background-color: transparent;
+        }
+
+        .device-card:hover .card-visual img {
+            transform: scale(1.06);
+        }
+
+        .rating-badge {
+            position: absolute;
+            top: 12px;
+            left: 12px;
+            background: #FFFFFF;
+            border: 1px solid var(--border);
+            border-radius: var(--radius-pill);
+            padding: 4px 10px;
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            font-family: var(--font-en);
+            font-size: 0.82rem;
+            font-weight: 800;
+            color: var(--text-title);
+            box-shadow: 0 2px 6px rgba(0,0,0,0.06);
+        }
+
+        .rating-badge i {
+            color: #F59E0B;
+            fill: #F59E0B;
+            width: 14px;
+            height: 14px;
+        }
+
+        .hw-badge-icon {
+            height: 18px;
+            max-width: 28px;
+            object-fit: contain;
+            vertical-align: middle;
+            margin-left: 6px;
+            flex-shrink: 0;
+            display: inline-block;
+        }
+
+        .hw-stickers-row {
+            position: absolute;
+            bottom: 8px;
+            left: 10px;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            z-index: 2;
+        }
+
+        .hw-sticker {
+            height: 22px;
+            max-width: 34px;
+            object-fit: contain;
+            filter: drop-shadow(0 2px 4px rgba(0,0,0,0.08));
+            background: #FFFFFF;
+            padding: 1px 3px;
+            border-radius: 4px;
+            border: 1px solid var(--border);
+            transition: transform 0.2s;
+        }
+
+        .hw-sticker:hover {
+            transform: scale(1.12);
+        }
+
+        .brand-badge {
+            position: absolute;
+            top: 12px;
+            right: 12px;
+            font-family: var(--font-en);
+            font-size: 0.75rem;
+            font-weight: 800;
+            color: var(--text-light);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .card-content {
+            padding: 18px 20px 20px 20px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .model-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 10px;
+        }
+
+        .model-name {
+            font-size: 1.1rem;
+            font-weight: 800;
+            color: var(--text-title);
+            font-family: var(--font-en);
+            line-height: 1.3;
+        }
+
+        .sr-copy-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: var(--bg-body);
+            border: 1px dashed var(--border-hover);
+            border-radius: 8px;
+            padding: 4px 10px;
+            font-family: var(--font-mono);
+            font-size: 0.78rem;
+            font-weight: 700;
+            color: var(--primary);
+            cursor: pointer;
+            transition: all 0.2s;
+            flex-shrink: 0;
+        }
+
+        .sr-copy-btn:hover {
+            background: var(--primary-bg);
+            border-color: var(--primary);
+            color: var(--primary-hover);
+            transform: scale(1.02);
+        }
+
+        .spec-list {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .spec-row {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: var(--bg-body);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 9px 12px;
+            gap: 10px;
+        }
+
+        .spec-label-group {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--text-muted);
+            font-size: 0.82rem;
+            font-weight: 600;
+            flex-shrink: 0;
+        }
+
+        .spec-label-group i {
+            color: var(--primary);
+            width: 15px;
+            height: 15px;
+        }
+
+        .spec-val-ltr {
+            direction: ltr !important;
+            text-align: left;
+            font-family: var(--font-en);
+            font-size: 0.85rem;
+            font-weight: 700;
+            color: var(--text-title);
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .spec-val-ltr.highlight {
+            color: var(--primary);
+        }
+
+        .feature-chips-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+        }
+
+        .feature-tag {
+            font-size: 0.72rem;
+            font-weight: 700;
+            background: var(--secondary-bg);
+            color: var(--secondary);
+            border: 1px solid var(--secondary-border);
+            padding: 3px 9px;
+            border-radius: 6px;
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        .card-action {
+            margin-top: auto;
+            padding-top: 10px;
+            border-top: 1px solid var(--border);
+        }
+
+        .btn-inspect-device {
+            width: 100%;
+            background: var(--bg-body);
+            border: 1px solid var(--border);
+            color: var(--text-title);
+            padding: 10px 16px;
+            border-radius: 10px;
+            font-family: var(--font-ar);
+            font-size: 0.88rem;
+            font-weight: 700;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            transition: all 0.25s ease;
+        }
+
+        .btn-inspect-device:hover {
+            background: var(--primary);
+            color: #FFFFFF;
+            border-color: var(--primary);
+            box-shadow: 0 4px 14px rgba(255, 85, 0, 0.25);
+        }
+
+        .modal-overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(15, 23, 42, 0.6);
+            backdrop-filter: blur(4px);
+            z-index: 100;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            padding: 16px;
+        }
+
+        .modal-overlay.active {
+            display: flex;
+        }
+
+        .modal-sheet {
+            background: #FFFFFF;
+            border-radius: var(--radius-card);
+            max-width: 650px;
+            width: 100%;
+            max-height: 90vh;
+            overflow-y: auto;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+            position: relative;
+            animation: modalPop 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        @keyframes modalPop {
+            from { opacity: 0; transform: scale(0.95); }
+            to { opacity: 1; transform: scale(1); }
+        }
+
+        .modal-close-btn {
+            position: absolute;
+            top: 18px;
+            left: 18px;
+            width: 34px;
+            height: 34px;
+            border-radius: 50%;
+            background: #F1F5F9;
+            border: 1px solid var(--border);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-muted);
+            transition: all 0.2s;
+        }
+
+        .modal-close-btn:hover {
+            background: #FEE2E2;
+            color: #EF4444;
+            border-color: #FECACA;
+        }
+
+        .copy-toast {
+            position: fixed;
+            bottom: 24px;
+            right: 24px;
+            background: #0F172A;
+            color: #FFFFFF;
+            padding: 14px 22px;
+            border-radius: 12px;
+            font-size: 0.92rem;
+            font-weight: 700;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.25);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            transform: translateY(100px);
+            opacity: 0;
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+            z-index: 200;
+        }
+
+        .copy-toast.show {
+            transform: translateY(0);
+            opacity: 1;
+        }
+
+        .empty-results {
+            grid-column: 1 / -1;
+            text-align: center;
+            padding: 60px 20px;
+            background: #FFFFFF;
+            border: 1px dashed var(--border);
+            border-radius: var(--radius-card);
+            display: none;
+        }
+
+        .empty-results.show {
+            display: block;
+        }
+
+        .table-section {
+            margin-top: 50px;
+            background: #FFFFFF;
+            border: 1px solid var(--border);
+            border-radius: var(--radius-card);
+            padding: 24px;
+            box-shadow: var(--shadow-sm);
+            animation: fadeInUp 0.7s var(--transition);
+        }
+
+        .table-section-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 18px;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+
+        .table-title-group {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .table-icon-box {
+            width: 42px;
+            height: 42px;
+            border-radius: 10px;
+            background: var(--primary-bg);
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .table-heading {
+            font-size: 1.15rem;
+            font-weight: 800;
+            color: var(--text-title);
+        }
+
+        .table-subheading {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            margin-top: 2px;
+        }
+
+        .btn-print-report {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: var(--primary);
+            color: #FFFFFF;
+            padding: 9px 18px;
+            border-radius: 8px;
+            font-family: inherit;
+            font-size: 0.85rem;
+            font-weight: 700;
+            border: none;
+            cursor: pointer;
+            transition: all var(--transition);
+        }
+
+        .btn-print-report:hover {
+            background: var(--primary-hover);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 16px rgba(255, 85, 0, 0.3);
+        }
+
+        .table-responsive-wrapper {
+            width: 100%;
+            overflow-x: auto;
+            border: 1px solid var(--border);
+            border-radius: 10px;
+        }
+
+        .inventory-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.76rem;
+            text-align: center;
+            table-layout: auto;
+        }
+
+        .inventory-table th {
+            background: #F8FAFC;
+            color: var(--text-title);
+            font-weight: 800;
+            padding: 9px 6px;
+            border-bottom: 1px solid var(--border);
+            white-space: nowrap;
+            font-size: 0.77rem;
+            text-align: center;
+            vertical-align: middle;
+        }
+
+        .inventory-table td {
+            padding: 8px 6px;
+            border-bottom: 1px solid var(--border-light);
+            color: var(--text-body);
+            vertical-align: middle;
+            font-size: 0.75rem;
+            text-align: center;
+        }
+
+        .inventory-table tbody tr:hover {
+            background: #F8FAFC;
+        }
+
+        .role-cell {
+            font-size: 0.73rem;
+            color: var(--text-body);
+            font-weight: 600;
+            line-height: 1.3;
+            max-width: 130px;
+            margin: 0 auto;
+            word-break: break-word;
+            text-align: center;
+        }
+
+        .inventory-table .sr-badge {
+            font-family: var(--font-en);
+            font-weight: 700;
+            color: var(--primary);
+            background: var(--primary-bg);
+            padding: 2px 6px;
+            border-radius: 5px;
+            font-size: 0.72rem;
+            direction: ltr;
+            display: inline-block;
+        }
+
+        .spec-combined-cell {
+            direction: ltr;
+            text-align: center;
+            font-family: var(--font-en);
+            line-height: 1.35;
+        }
+
+        .spec-combined-cpu {
+            font-weight: 800;
+            color: var(--text-title);
+            font-size: 0.76rem;
+            text-align: center;
+        }
+
+        .spec-combined-sub {
+            color: var(--text-muted);
+            font-size: 0.70rem;
+            font-weight: 600;
+            margin-top: 2px;
+            text-align: center;
+        }
+
+        .print-only-header {
+            display: none;
+        }
+
+        .print-watermark {
+            display: none;
+        }
+
+        @media print {
+            @page {
+                size: A4 landscape;
+                margin: 5mm;
+            }
+
+            .print-watermark {
+                display: block !important;
+                position: fixed !important;
+                top: 50% !important;
+                left: 50% !important;
+                transform: translate(-50%, -50%) !important;
+                width: 440px !important;
+                max-width: 55% !important;
+                opacity: 0.08 !important;
+                pointer-events: none !important;
+                z-index: 0 !important;
+                -webkit-print-color-adjust: exact !important;
+                print-color-adjust: exact !important;
+            }
+
+            html, body {
+                background: #FFFFFF !important;
+                color: #000000 !important;
+                padding: 0 !important;
+                margin: 0 !important;
+                width: 100% !important;
+                position: relative !important;
+            }
+
+            .container {
+                max-width: 100% !important;
+                padding: 0 !important;
+                margin: 0 !important;
+            }
+
+            .page-header,
+            .filter-panel,
+            .results-bar,
+            .cards-grid,
+            .empty-results,
+            .modal-overlay,
+            .copy-toast,
+            .btn-print-report,
+            .table-section-header {
+                display: none !important;
+            }
+
+            .table-section {
+                margin: 0 !important;
+                padding: 0 !important;
+                border: none !important;
+                box-shadow: none !important;
+                background: transparent !important;
+            }
+
+            .table-responsive-wrapper {
+                border: none !important;
+                overflow: visible !important;
+                width: 100% !important;
+                background: transparent !important;
+            }
+
+            .print-only-header {
+                display: block !important;
+                margin-bottom: 12px !important;
+                border-bottom: 2px solid #0F172A !important;
+                padding-bottom: 8px !important;
+                background: transparent !important;
+            }
+
+            .print-header-content {
+                display: flex !important;
+                align-items: center !important;
+                justify-content: space-between !important;
+                direction: rtl !important;
+                gap: 16px !important;
+            }
+
+            .print-logo-box {
+                flex-shrink: 0 !important;
+                padding-left: 10px !important;
+            }
+
+            .print-logo {
+                max-height: 55px !important;
+                width: auto !important;
+                object-fit: contain !important;
+            }
+
+            .print-title-box {
+                flex-grow: 1 !important;
+                text-align: center !important;
+            }
+
+            .print-title-box h2 {
+                font-size: 14pt !important;
+                font-weight: 900 !important;
+                color: #0F172A !important;
+                margin-bottom: 3px !important;
+            }
+
+            .print-title-box .print-sub-title {
+                font-size: 8.5pt !important;
+                font-weight: 700 !important;
+                color: var(--primary) !important;
+            }
+
+            .print-meta-box {
+                flex-shrink: 0 !important;
+                text-align: right !important;
+                direction: rtl !important;
+                border: 1px solid #CBD5E1 !important;
+                border-radius: 6px !important;
+                padding: 5px 10px !important;
+                background: rgba(248, 250, 252, 0.85) !important;
+                font-size: 7.2pt !important;
+                line-height: 1.45 !important;
+            }
+
+            .print-meta-row {
+                color: #334155 !important;
+            }
+
+            .inventory-table {
+                width: 100% !important;
+                font-size: 7pt !important;
+                line-height: 1.25 !important;
+                table-layout: fixed !important;
+                border-collapse: collapse !important;
+                background: transparent !important;
+                text-align: center !important;
+            }
+
+            .inventory-table th {
+                background: rgba(226, 232, 240, 0.7) !important;
+                color: #0F172A !important;
+                border: 1px solid #94A3B8 !important;
+                padding: 4px 3px !important;
+                font-size: 7.2pt !important;
+                font-weight: 800 !important;
+                text-align: center !important;
+                vertical-align: middle !important;
+            }
+
+            .inventory-table td {
+                border: 1px solid #CBD5E1 !important;
+                padding: 4px 3px !important;
+                color: #0F172A !important;
+                word-break: break-word !important;
+                overflow: hidden !important;
+                text-align: center !important;
+                vertical-align: middle !important;
+                background: transparent !important;
+            }
+
+            .role-cell {
+                font-size: 6.8pt !important;
+                line-height: 1.2 !important;
+                text-align: center !important;
+                max-width: 100% !important;
+            }
+
+            .spec-combined-cell {
+                text-align: center !important;
+                direction: ltr !important;
+            }
+
+            .spec-combined-cpu {
+                font-size: 7pt !important;
+                text-align: center !important;
+            }
+
+            .spec-combined-sub {
+                font-size: 6.5pt !important;
+                text-align: center !important;
+            }
+
+            .inventory-table tr {
+                page-break-inside: avoid !important;
+                background: transparent !important;
+            }
+
+            .inventory-table th:nth-child(1) { width: 22px !important; }
+            .inventory-table th:nth-child(2) { width: 13% !important; }
+            .inventory-table th:nth-child(3) { width: 14% !important; }
+            .inventory-table th:nth-child(4) { width: 11% !important; }
+            .inventory-table th:nth-child(5) { width: 8% !important; }
+            .inventory-table th:nth-child(6) { width: 12% !important; }
+            .inventory-table th:nth-child(7) { width: 23% !important; }
+            .inventory-table th:nth-child(8) { width: 10% !important; }
+            .inventory-table th:nth-child(9) { width: 9% !important; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        
+        <header class="page-header">
+            <div class="cad-crosshair tl"></div>
+            <div class="cad-crosshair tr"></div>
+            <div class="cad-crosshair bl"></div>
+            <div class="cad-crosshair br"></div>
+
+            <div class="company-brand-header">
+                <img src="https://raw.githubusercontent.com/Amrmoustafa2222/Jaico/refs/heads/main/logo.png" alt="JAICO" class="main-company-logo">
+            </div>
+            
+            <h1 class="page-title">حصر بجميع الأجهزة واللابتوب بالشركة</h1>
+
+            <div class="kpi-grid">
+                <div class="kpi-card kpi-total">
+                    <div class="kpi-icon">
+                        <i data-lucide="boxes"></i>
+                    </div>
+                    <div>
+                        <div class="kpi-val" id="kpi-total">19</div>
+                        <div class="kpi-label">إجمالي الأجهزة المسجلة</div>
+                    </div>
+                </div>
+
+                <div class="kpi-card kpi-laptops">
+                    <div class="kpi-icon">
+                        <i data-lucide="laptop"></i>
+                    </div>
+                    <div>
+                        <div class="kpi-val" id="kpi-laptops">17</div>
+                        <div class="kpi-label">أجهزة لابتوب محمولة</div>
+                    </div>
+                </div>
+
+                <div class="kpi-card kpi-pcs">
+                    <div class="kpi-icon">
+                        <i data-lucide="monitor"></i>
+                    </div>
+                    <div>
+                        <div class="kpi-val" id="kpi-pcs">2</div>
+                        <div class="kpi-label">أجهزة كمبيوتر مكتبية (PC)</div>
+                    </div>
+                </div>
+
+                <div class="kpi-card kpi-workstations">
+                    <div class="kpi-icon">
+                        <i data-lucide="cpu"></i>
+                    </div>
+                    <div>
+                        <div class="kpi-val" id="kpi-workstations">13</div>
+                        <div class="kpi-label">فئة هندسية وعالية الأداء</div>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <div class="filter-panel">
+            <div class="cad-crosshair tl"></div>
+            <div class="cad-crosshair tr"></div>
+
+            <div class="search-sort-row">
+                <div class="search-field">
+                    <input type="text" id="searchInput" placeholder="ابحث باسم الموظف، الموديل، السيريال SR، المعالج، حالة العهدة...">
+                    <i data-lucide="search" class="search-icon" style="width: 18px; height: 18px;"></i>
+                </div>
+
+                <div class="sort-field">
+                    <select id="sortSelect">
+                        <option value="default">الترتيب الافتراضي</option>
+                        <option value="rating-desc">الأعلى تقييماً (Performance)</option>
+                        <option value="ram-desc">أكبر سعة رام (RAM)</option>
+                        <option value="name-asc">اسم الموظف (أ - ي)</option>
+                    </select>
+                    <i data-lucide="chevron-down" class="sort-arrow" style="width: 16px; height: 16px;"></i>
+                </div>
+            </div>
+
+            <div class="dept-filter-row" id="deptTabsContainer">
+                <span class="dept-filter-label">
+                    <i data-lucide="building-2" style="width: 15px; height: 15px; color: var(--primary);"></i>
+                    الإدارة:
+                </span>
+                <div class="dept-btn active" data-dept="all">
+                    <span>كافة الإدارات</span>
+                    <span class="dept-badge-count" id="count-all-badge">19</span>
+                </div>
+            </div>
+
+            <div class="custody-filter-row" id="custodyTabsContainer">
+                <span class="dept-filter-label">
+                    <i data-lucide="shield-check" style="width: 15px; height: 15px; color: var(--secondary);"></i>
+                    حالة العهدة:
+                </span>
+                <div class="custody-btn active" data-custody="all">
+                    <span>كافة العهد والأجهزة</span>
+                    <span class="dept-badge-count" id="count-custody-all">19</span>
+                </div>
+                <div class="custody-btn" data-custody="signed">
+                    <span>عهدة مسلمة وموقعة</span>
+                    <span class="dept-badge-count" id="count-custody-signed">7</span>
+                </div>
+                <div class="custody-btn" data-custody="unsigned">
+                    <span>عهدة مسلمة (غير موقعة)</span>
+                    <span class="dept-badge-count" id="count-custody-unsigned">11</span>
+                </div>
+                <div class="custody-btn" data-custody="stock">
+                    <span>متاح بالمخزن (غير مستلم)</span>
+                    <span class="dept-badge-count" id="count-custody-stock">1</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="results-bar">
+            <div class="count-title">
+                الأجهزة المطابقة: <span id="resultsCount">19</span> جهاز
+            </div>
+        </div>
+
+        <div class="cards-grid" id="cardsGrid">
+        </div>
+
+        <div class="empty-results" id="emptyState">
+            <i data-lucide="search-x" style="width: 48px; height: 48px; color: var(--text-light); margin-bottom: 12px;"></i>
+            <h3 style="font-size: 1.15rem; color: var(--text-title); margin-bottom: 6px;">لم يتم العثور على أجهزة مطابقة للبحث</h3>
+            <p style="color: var(--text-muted); font-size: 0.9rem;">جرب مسح شريط البحث أو اختيار "كافة الإدارات".</p>
+        </div>
+
+        <section class="table-section" id="printReportSection">
+            <img src="https://raw.githubusercontent.com/Amrmoustafa2222/Jaico/refs/heads/main/logo.png" alt="Jaico Watermark" class="print-watermark">
+            <div class="cad-crosshair tl"></div>
+            <div class="cad-crosshair tr"></div>
+
+            <div class="table-section-header">
+                <div class="table-title-group">
+                    <div class="table-icon-box">
+                        <i data-lucide="table"></i>
+                    </div>
+                    <div>
+                        <h2 class="table-heading">جدول حصر ومواصفات الأجهزة الشامل</h2>
+                        <p class="table-subheading">سجل تفصيلي قابل للفرز والطباعة لجميع العهد والأجهزة المسجلة بالشركة</p>
+                    </div>
+                </div>
+                <button class="btn-print-report" onclick="window.print()">
+                    <i data-lucide="printer"></i>
+                    <span>طباعة التقرير (A4)</span>
+                </button>
+            </div>
+
+            <div class="print-only-header">
+                <div class="print-header-content">
+                    <div class="print-logo-box">
+                        <img src="https://raw.githubusercontent.com/Amrmoustafa2222/Jaico/refs/heads/main/logo.png" alt="Jaico Logo" class="print-logo">
+                    </div>
+                    <div class="print-title-box">
+                        <h2>تقرير حصر ومواصفات أصول الأجهزة واللابتوبات</h2>
+                        <p class="print-sub-title">إدارة تقنية المعلومات والمشتريات • شركة جايكو للمقاولات العامة والحلول المتكاملة</p>
+                    </div>
+                    <div class="print-meta-box">
+                        <div class="print-meta-row"><strong>تاريخ الإصدار:</strong> <span id="printDate"></span></div>
+                        <div class="print-meta-row"><strong>إجمالي الأجهزة:</strong> <span id="printTotalCount">19</span> جهاز (موقعة: 7 • غير موقعة: 11 • بالمخزن: 1)</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="table-responsive-wrapper">
+                <table class="inventory-table" id="inventoryTable">
+                    <thead>
+                        <tr>
+                            <th style="width: 22px; text-align: center;">#</th>
+                            <th>اسم الموظف</th>
+                            <th>المسمى الوظيفي</th>
+                            <th>الإدارة</th>
+                            <th>حالة العهدة</th>
+                            <th>نوع وموديل الجهاز</th>
+                            <th>المواصفات التقنية (CPU / RAM / SSD / GPU)</th>
+                            <th>السيريال (SR)</th>
+                            <th>حالة البطارية</th>
+                        </tr>
+                    </thead>
+                    <tbody id="inventoryTableBody">
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+    </div>
+
+    <div class="modal-overlay" id="modalOverlay">
+        <div class="modal-sheet">
+            <button class="modal-close-btn" id="closeModalBtn">
+                <i data-lucide="x" style="width: 18px; height: 18px;"></i>
+            </button>
+            <div id="modalContentBody" style="padding: 26px;">
+            </div>
+        </div>
+    </div>
+
+    <div class="copy-toast" id="copyToast">
+        <i data-lucide="check-circle" style="color: #22C55E; width: 20px; height: 20px;"></i>
+        <span id="toastMessage">تم نسخ السيريال بنجاح!</span>
+    </div>
+
+    <script>
+        const devices = [
+            {
+                id: "DEV-1",
+                employee: "بسمة جودة سلامه",
+                role: "مهندس مكتب فنى",
+                department: "إدارة المكتب الفني",
+                model: "Dell Inspiron 3580",
+                brand: "Dell",
+                cpu: "Intel Core i7-8565U",
+                ram: "8 GB DDR4",
+                ramVal: 8,
+                gpu: "AMD Radeon 520 (2GB) + Intel UHD",
+                storage: "1 TB HDD",
+                screen: '15.6" Full HD Anti-Glare',
+                battery: "قيد الفحص",
+                sr: "9n2ljz2",
+                rating: 7.8,
+                custody: "signed",
+                custodyLabel: "عهدة مسلمة وموقعة",
+                image: "https://i.dell.com/is/image/DellContent//content/dam/ss2/product-images/dell-client-products/notebooks/inspiron-notebooks/15-3580/global-spi/notebook-inspiron-15-3580-nt-2sp-black-relsize-500-ng.psd?fmt=jpg",
+                tags: ["معالج Core i7", "سعة تخزين 1TB"],
+                summary: "جهاز مكتبي متوازن؛ ممتاز لتشغيل برامج الأوفيس والتصفح المكثف، ويشغل AutoCAD 2D للمخططات الخفيفة والمتوسطة، وبرنامج Photoshop للتعديلات البسيطة. غير مخصص للرندر ثلاثي الأبعاد الثقيل (Revit/Lumion) بسبب اعتماده على هارد HDD ومعالج موفر للطاقة."
+            },
+            {
+                id: "DEV-2",
+                employee: "مريم عبد الغني احمد",
+                role: "مهندس مكتب فنى",
+                department: "إدارة المكتب الفني",
+                model: "Dell Precision 5550",
+                brand: "Dell",
+                cpu: "Intel Core i7-10850H (High-End)",
+                ram: "16 GB DDR4",
+                ramVal: 16,
+                gpu: "NVIDIA Dedicated 4GB Pro",
+                storage: "512 GB NVMe SSD",
+                screen: '15.6" 4K UHD+ Touch Screen',
+                battery: "جيدة جداً (80%) • ~3 ساعات",
+                sr: "b3k8bc3",
+                rating: 9.7,
+                custody: "signed",
+                custodyLabel: "عهدة مسلمة وموقعة",
+                image: "https://i.ebayimg.com/images/g/p~oAAOSw5cxlMcgu/s-l1600.webp",
+                tags: ["شاشة 4K لمس", "بصمة Face ID", "بصمة أصبع", "محطة عمل Workstation"],
+                summary: "محطة عمل هندسية احترافية (Workstation) من الفئة العليا؛ تشغل بكفاءة برامج Revit و AutoCAD 3D و 3ds Max و Navisworks والـ Lumion للمشاريع المتوسطة والكبيرة، وممتازة جداً لمونتاج الفيديو على Premiere وتصميم الجرافيك الثقيل وتحمل ملفات الإكسيل الضخمة والمعالجة الفورية."
+            },
+            {
+                id: "DEV-3",
+                employee: "مرام محمود فكري",
+                role: "مهندس مكتب فنى",
+                department: "إدارة المكتب الفني",
+                model: "Lenovo IdeaPad 5",
+                brand: "Lenovo",
+                cpu: "Intel Core i7-1165G7 (Gen 11)",
+                ram: "8 GB DDR4",
+                ramVal: 8,
+                gpu: "NVIDIA GeForce MX450 (2GB)",
+                storage: "500 GB NVMe SSD",
+                screen: '15.6" Full HD IPS',
+                battery: "جيدة جداً (85%) • ~3 ساعات",
+                sr: "pf3plnlr",
+                rating: 8.6,
+                custody: "signed",
+                custodyLabel: "عهدة مسلمة وموقعة",
+                image: "https://p3-ofp.static.pub//fes/cms/2024/09/16/tymwis610km6dnd4lhau2lepjclac9083160.png?width=584&height=584",
+                tags: ["معالج جيل 11 حديث", "كارت شاشة MX450", "هارد سريع NVMe SSD"],
+                summary: "أداء سريع واستجابة فائقة بفضل معالج الجيل 11 وهارد NVMe؛ يشغل AutoCAD 2D/3D بسلاسة، وبرامج الجرافيك Photoshop و Illustrator، ونمذجة خفيفة على SketchUp. يتحمل تعدد المهام بكفاءة عالية، ولكن يفضل ترقية الرام إلى 16GB لمشاريع الـ Revit الكبيرة."
+            },
+            {
+                id: "DEV-4",
+                employee: "محمود العسال",
+                role: "مهندس مكتب فنى",
+                department: "إدارة المكتب الفني",
+                model: "Lenovo IdeaPad 5",
+                brand: "Lenovo",
+                cpu: "Intel Core i7-1165G7 (Gen 11)",
+                ram: "8 GB DDR4",
+                ramVal: 8,
+                gpu: "NVIDIA GeForce MX450 (2GB)",
+                storage: "500 GB NVMe SSD",
+                screen: '15.6" Full HD IPS',
+                battery: "جيدة جداً (85%) • ~3 ساعات",
+                sr: "PF3pmd9h",
+                rating: 8.6,
+                custody: "unsigned",
+                custodyLabel: "عهدة غير موقعة (قيد التوقيع)",
+                image: "https://p3-ofp.static.pub//fes/cms/2024/09/16/tymwis610km6dnd4lhau2lepjclac9083160.png?width=584&height=584",
+                tags: ["معالج جيل 11 حديث", "كارت شاشة MX450", "هارد سريع NVMe SSD"],
+                summary: "أداء سريع واستجابة فائقة بفضل معالج الجيل 11 وهارد NVMe؛ يشغل AutoCAD 2D/3D بسلاسة، وبرامج الجرافيك Photoshop و Illustrator، ونمذجة خفيفة على SketchUp. يتحمل تعدد المهام بكفاءة عالية، ولكن يفضل ترقية الرام إلى 16GB لمشاريع الـ Revit الكبيرة."
+            },
+            {
+                id: "DEV-5",
+                employee: "ايه الله محمد حمدان",
+                role: "مديرة المكتب الفنى",
+                department: "إدارة المكتب الفني",
+                model: "Dell Precision 5520 Workstation",
+                brand: "Dell",
+                cpu: "Intel Xeon E3 Server-Grade",
+                ram: "16 GB ECC RAM",
+                ramVal: 16,
+                gpu: "NVIDIA Quadro 4GB Pro",
+                storage: "512 GB NVMe SSD",
+                screen: '15.6" UltraSharp 4K Touch Screen',
+                battery: "جيدة جداً (80%) • ~3 ساعات",
+                sr: "27R7PH2",
+                rating: 9.6,
+                custody: "signed",
+                custodyLabel: "عهدة مسلمة وموقعة",
+                image: "https://i.ebayimg.com/images/g/cCMAAOSw2yBkmcNj/s-l1600.webp",
+                tags: ["معالج Xeon سيرفر", "شاشة 4K لمس", "كارت Quadro 4G", "Workstation"],
+                summary: "محطة عمل سيرفرية فائقة الاستقرار والتحمل للعمل الشاق المتواصل؛ مصممة لتشغيل برامج الهندسة المعمارية والإنشائية Revit، 3ds Max، AutoCAD، وموديلات الـ BIM. ذاكرة الـ ECC تضمن عدم حدوث أي تهنيج أو كراش مفاجئ أثناء الرندر ومعالجة الملفات الكبيرة."
+            },
+            {
+                id: "DEV-6",
+                employee: "محمد هشام",
+                role: "محاسب (للمخزن)",
+                department: "إدارة الحسابات",
+                model: "Dell Vostro 3500",
+                brand: "Dell",
+                cpu: "Intel Core i5-1135G7 (Gen 11)",
+                ram: "8 GB DDR4",
+                ramVal: 8,
+                gpu: "NVIDIA GeForce MX370",
+                storage: "500 GB NVMe SSD",
+                screen: '15.6" Full HD Anti-Glare',
+                battery: "قيد الفحص",
+                sr: "5yasxf3",
+                rating: 8.0,
+                custody: "unsigned",
+                custodyLabel: "عهدة غير موقعة (قيد التوقيع)",
+                image: "https://i.dell.com/is/image/DellContent//content/dam/ss2/product-images/dell-client-products/notebooks/vostro-notebooks/vostro-3500/global-spi/ng/notebook-vostro-15-3500-nt-relsize-500-ng.psd?fmt=jpg&wid=500&hei=210",
+                tags: ["سريع الإقلاع", "جيل 11", "كارت منفصل MX370"],
+                summary: "جهاز سريع وعملي جداً؛ يشغل حزمة برامج Office بالكامل مع أضخم شيتات الإكسيل والمعادلات المعقدة، ومتصفحات متعددة بكفاءة، وبرامج الـ ERP وقواعد البيانات، ويشغل AutoCAD 2D للمخططات التنفيذية وتعديل الصور على Photoshop."
+            },
+            {
+                id: "DEV-7",
+                employee: "محمد مجدي حسن",
+                role: "مدير المشتريات",
+                department: "إدارة المشتريات",
+                model: "Dell Vostro 3500",
+                brand: "Dell",
+                cpu: "Intel Core i5-1135G7 (Gen 11)",
+                ram: "8 GB DDR4",
+                ramVal: 8,
+                gpu: "NVIDIA GeForce MX370",
+                storage: "500 GB NVMe SSD",
+                screen: '15.6" Full HD Anti-Glare',
+                battery: "ضعيفة جداً (15%) • ~10 دقائق",
+                sr: "8z233g3",
+                rating: 8.0,
+                custody: "signed",
+                custodyLabel: "عهدة مسلمة وموقعة",
+                image: "https://i.dell.com/is/image/DellContent//content/dam/ss2/product-images/dell-client-products/notebooks/vostro-notebooks/vostro-3500/global-spi/ng/notebook-vostro-15-3500-nt-relsize-500-ng.psd?fmt=jpg&wid=500&hei=210",
+                tags: ["سريع الإقلاع", "جيل 11", "كارت منفصل MX370"],
+                summary: "جهاز سريع وعملي جداً؛ يشغل حزمة برامج Office بالكامل مع أضخم شيتات الإكسيل والمعادلات المعقدة، ومتصفحات متعددة بكفاءة، وبرامج الـ ERP وقواعد البيانات، ويشغل AutoCAD 2D للمخططات التنفيذية وتعديل الصور على Photoshop."
+            },
+            {
+                id: "DEV-8",
+                employee: "بلال ابو رباح",
+                role: "مدير علاقات العملاء",
+                department: "إدارة العلاقات العامة",
+                model: "Dell Vostro 3500",
+                brand: "Dell",
+                cpu: "Intel Core i5-1135G7 (Gen 11)",
+                ram: "8 GB DDR4",
+                ramVal: 8,
+                gpu: "NVIDIA GeForce MX370",
+                storage: "500 GB NVMe SSD",
+                screen: '15.6" Full HD Anti-Glare',
+                battery: "ضعيفة جداً (15%) • ~10 دقائق",
+                sr: "5hjrxf3",
+                rating: 8.0,
+                custody: "unsigned",
+                custodyLabel: "عهدة غير موقعة (قيد التوقيع)",
+                image: "https://i.dell.com/is/image/DellContent//content/dam/ss2/product-images/dell-client-products/notebooks/vostro-notebooks/vostro-3500/global-spi/ng/notebook-vostro-15-3500-nt-relsize-500-ng.psd?fmt=jpg&wid=500&hei=210",
+                tags: ["سريع الإقلاع", "جيل 11", "كارت منفصل MX370"],
+                summary: "جهاز سريع وعملي جداً؛ يشغل حزمة برامج Office بالكامل مع أضخم شيتات الإكسيل والمعادلات المعقدة، ومتصفحات متعددة بكفاءة، وبرامج الـ ERP وقواعد البيانات، ويشغل AutoCAD 2D للمخططات التنفيذية وتعديل الصور على Photoshop."
+            },
+            {
+                id: "DEV-9",
+                employee: "ضحي عادل محمد",
+                role: "مهندس مكتب فنى",
+                department: "إدارة المكتب الفني",
+                model: "MSI GF65 Thin",
+                brand: "MSI",
+                cpu: "Intel Core i7-10750H (6-Core)",
+                ram: "16 GB DDR4",
+                ramVal: 16,
+                gpu: "NVIDIA GeForce RTX 2060 (6GB)",
+                storage: "1 TB NVMe SSD",
+                screen: '15.6" Full HD 144Hz IPS',
+                battery: "تالفة (0%) • تحتاج بطارية جديدة",
+                sr: "9s7716w1121047zl100095",
+                rating: 9.6,
+                custody: "signed",
+                custodyLabel: "عهدة مسلمة وموقعة",
+                image: "https://i.ebayimg.com/images/g/M-AAAOSwxypc-bJO/s-l1600.webp",
+                tags: ["RTX 2060 6GB", "شاشة 144Hz", "هارد 1TB SSD", "Core i7-H"],
+                summary: "وحش معالجة ورندر عالي القوة؛ كارت الشاشة RTX 2060 سعة 6GB والمعالج سداسي الأنوية يمنحانه القدرة الكاملة على تشغيل أثقل برامج الرندر الهندسي الفوري Lumion و V-Ray و Unreal Engine و Revit و 3ds Max، ومونتاج الفيديو بدقة 4K على Premiere و After Effects بسلاسة تامة."
+            },
+            {
+                id: "DEV-10",
+                employee: "احمد مصطفي",
+                role: "HR (مسؤول الموارد البشرية)",
+                department: "إدارة الموارد البشرية",
+                model: "Dell Precision 7510",
+                brand: "Dell",
+                cpu: "Intel Core i7-6820HQ",
+                ram: "16 GB DDR4",
+                ramVal: 16,
+                gpu: "NVIDIA Quadro M1000M",
+                storage: "1 TB NVMe SSD",
+                screen: '15.6" Full HD UltraSharp',
+                battery: "قيد الفحص",
+                sr: "6vjwf2",
+                rating: 8.8,
+                custody: "unsigned",
+                custodyLabel: "عهدة غير موقعة (قيد التوقيع)",
+                image: "https://i.ebayimg.com/images/g/Ai0AAeSw1LlqiJ8s/s-l1600.webp",
+                tags: ["16GB RAM", "هارد 1TB SSD", "كارت Quadro", "Workstation"],
+                summary: "محطة عمل متينة مخصصة للأداء المستمر والضغط العالي؛ معالج فئة HQ ورام 16GB وهارد NVMe يتيح تشغيل برامج AutoCAD 2D/3D و SolidWorks وتحليل البيانات المعقدة وقواعد البيانات الضخمة، مع فتح عشرات التطبيقات الثقيلة في الخلفية دون أي بطء."
+            },
+            {
+                id: "DEV-11",
+                employee: "محمد علي عبد الجواد الصياد",
+                role: "حسابات المشاريع",
+                department: "إدارة الحسابات",
+                model: "Dell G15 5510",
+                brand: "Dell",
+                cpu: "Intel Core i5-10200H (High-End)",
+                ram: "8 GB DDR4",
+                ramVal: 8,
+                gpu: "NVIDIA GeForce GTX 1650 (4GB)",
+                storage: "512 GB NVMe SSD",
+                screen: '15.6" Full HD 120Hz',
+                battery: "قيد الفحص",
+                sr: "bs7plf3",
+                rating: 8.7,
+                custody: "signed",
+                custodyLabel: "عهدة مسلمة وموقعة",
+                image: "https://i.dell.com/is/image/DellContent/content/dam/ss2/product-images/dell-client-products/notebooks/g-series/15-5510/spi/ng/notebook-g5-15-5510-nt-relsize-dark-shadow-grey-500-ng.psd?qlt=95&fit=constrain,1&hei=241&wid=500&fmt=png-alpha",
+                tags: ["كارت GTX 1650", "معالج فئة H", "هارد SSD سريع"],
+                summary: "جهاز قوي بفئة معالجات H المرتفعة الأداء وكارت GTX 1650 المنفصل؛ يشغل برامج AutoCAD 2D/3D، وبرامج التصميم الجرافيكي Photoshop و Illustrator، ومونتاج الفيديو، مع إمكانية تشغيل برامج الرندر الخفيفة والمتوسطة بكفاءة."
+            },
+            {
+                id: "DEV-12",
+                employee: "محمد هشام",
+                role: "محاسب تكاليف",
+                department: "إدارة الحسابات",
+                model: "HP Laptop 15",
+                brand: "HP",
+                cpu: "Intel Core i7-8565U",
+                ram: "8 GB DDR4",
+                ramVal: 8,
+                gpu: "NVIDIA GeForce MX130 (2GB)",
+                storage: "1 TB HDD",
+                screen: '15.6" Full HD SVA',
+                battery: "قيد الفحص",
+                sr: "غير مسجل",
+                rating: 7.9,
+                custody: "unsigned",
+                custodyLabel: "عهدة غير موقعة (قيد التوقيع)",
+                image: "https://m.media-amazon.com/images/I/41rfGeZkNDL._AC_SX679_.jpg",
+                tags: ["معالج Core i7", "سعة 1TB", "كارت MX130"],
+                summary: "جهاز اقتصادي مناسب للمهام الإدارية والمكتبية وتصفح الإنترنت، يشغل حزمة برامج Office وبرامج قواعد البيانات والـ ERP بكفاءة، مع إمكانية تشغيل AutoCAD 2D البسيط. غير مخصص للأعمال ثلاثية الأبعاد المعقدة أو برامج الرندر."
+            },
+            {
+                id: "DEV-13",
+                employee: "محمد عادل",
+                role: "المدير المالي",
+                department: "الإدارة المالية",
+                model: "Victus by HP 16",
+                brand: "HP",
+                cpu: "AMD Ryzen 7 5800H (8-Core High-End)",
+                ram: "16 GB DDR4",
+                ramVal: 16,
+                gpu: "NVIDIA GeForce RTX 3050 (4GB)",
+                storage: "1 TB NVMe SSD",
+                screen: '16.1" Full HD IPS 144Hz',
+                battery: "قيد الفحص",
+                sr: "5CD202GFMM",
+                rating: 9.7,
+                custody: "unsigned",
+                custodyLabel: "عهدة غير موقعة (قيد التوقيع)",
+                image: "https://hp.widen.net/content/sacgjr9m3x/png/sacgjr9m3x.png?w=400&h=400&dpi=72&color=ffffff00",
+                tags: ["Ryzen 7 5800H", "RTX 3050", "16GB RAM", "1TB SSD"],
+                summary: "قوة معالجة خارقة بفضل معالج Ryzen 7 ثماني الأنوية مع كارت RTX 3050؛ يشغل باحترافية برامج الهندسة والنمذجة Revit و AutoCAD 3D و Lumion و 3ds Max، وبرامج المونتاج والمؤثرات البصرية Premiere و After Effects، ومعالجة وتحليل البيانات الضخمة وفك الضغط الفوري."
+            },
+            {
+                id: "DEV-14",
+                employee: "دينا",
+                role: "محاسب",
+                department: "إدارة الحسابات",
+                model: "Dell Precision T3610 PC",
+                brand: "Dell",
+                cpu: "Intel Xeon E5-2630 v2",
+                ram: "16 GB DDR3 ECC",
+                ramVal: 16,
+                gpu: "NVIDIA Quadro K600",
+                storage: "300 GB HDD/SAS",
+                screen: "شاشة كمبيوتر مكتبية (PC)",
+                battery: "PC مكتبي (تيار كهرباء مباشر)",
+                sr: "غير مسجل",
+                rating: 8.3,
+                custody: "unsigned",
+                custodyLabel: "عهدة غير موقعة (قيد التوقيع)",
+                image: "https://i.ebayimg.com/images/g/GvoAAOSwj~dksGX6/s-l1600.webp",
+                tags: ["كمبيوتر مكتبي PC", "معالج Xeon", "16GB RAM", "كارت Quadro"],
+                summary: "كمبيوتر مكتبي (Workstation) فائق الاعتمادية؛ مصمم ليعمل 24 ساعة يومياً بدون انقطاع. ممتاز لمعالجة برامج الـ ERP المركزية، خوادم قواعد البيانات، المخططات الهندسية على AutoCAD، وإجراء العمليات الحسابية المتعددة دون أدنى تأثر في استقرار النظام."
+            },
+            {
+                id: "DEV-15",
+                employee: "ربيع",
+                role: "محاسب",
+                department: "إدارة الحسابات",
+                model: "Dell Precision T3610 PC",
+                brand: "Dell",
+                cpu: "Intel Xeon E5 Series",
+                ram: "16 GB DDR3 ECC",
+                ramVal: 16,
+                gpu: "NVIDIA Quadro K600",
+                storage: "500 GB HDD",
+                screen: "شاشة كمبيوتر مكتبية (PC)",
+                battery: "PC مكتبي (تيار كهرباء مباشر)",
+                sr: "غير مسجل",
+                rating: 8.3,
+                custody: "unsigned",
+                custodyLabel: "عهدة غير موقعة (قيد التوقيع)",
+                image: "https://i.ebayimg.com/images/g/GvoAAOSwj~dksGX6/s-l1600.webp",
+                tags: ["كمبيوتر مكتبي PC", "معالج Xeon", "16GB RAM", "كارت Quadro"],
+                summary: "كمبيوتر مكتبي (Workstation) فائق الاعتمادية؛ مصمم ليعمل 24 ساعة يومياً بدون انقطاع. ممتاز لمعالجة برامج الـ ERP المركزية، خوادم قواعد البيانات، المخططات الهندسية على AutoCAD، وإجراء العمليات الحسابية المتعددة دون أدنى تأثر في استقرار النظام."
+            },
+            {
+                id: "DEV-16",
+                employee: "عبد الرحمن",
+                role: "محاسب",
+                department: "إدارة الحسابات",
+                model: "Lenovo IdeaPad (81W)",
+                brand: "Lenovo",
+                cpu: "AMD Ryzen 3 3200U",
+                ram: "8 GB DDR4",
+                ramVal: 8,
+                gpu: "AMD Radeon Vega 3",
+                storage: "128 GB SSD + 1 TB HDD",
+                screen: '15.6" Full HD',
+                battery: "قيد الفحص",
+                sr: "غير مسجل",
+                rating: 7.7,
+                custody: "unsigned",
+                custodyLabel: "عهدة غير موقعة (قيد التوقيع)",
+                image: "https://m.media-amazon.com/images/I/41v0+YK3JsS._AC_.jpg",
+                tags: ["تخزين مزدوج SSD + HDD", "128GB SSD", "1TB HDD"],
+                summary: "جهاز سريع الإقلاع والاستجابة بفضل وجود وحدة SSD للنظام، ممتاز لتشغيل برامج الأوفيس والتصفح المتعدد وتطبيقات إدارة الأعمال والـ PDF، والتصميم وتعديل الصور الخفيف على Photoshop."
+            },
+            {
+                id: "DEV-17",
+                employee: "زياد خفاجي",
+                role: "مدير التشغيل",
+                department: "إدارة التشغيل",
+                model: "ASUS TUF Gaming A15",
+                brand: "ASUS",
+                cpu: "AMD Ryzen 7 6800H (8-Core Gen 6)",
+                ram: "16 GB DDR5",
+                ramVal: 16,
+                gpu: "NVIDIA GeForce RTX 3050 (4GB) + Radeon 680M",
+                storage: "500 GB NVMe SSD",
+                screen: '15.6" Full HD IPS 144Hz',
+                battery: "ضعيفة جداً (15%) • ~10 دقائق",
+                sr: "n1nrcx11ug44d4d",
+                rating: 9.6,
+                custody: "unsigned",
+                custodyLabel: "عهدة غير موقعة (قيد التوقيع)",
+                image: "https://eg-ar.store.asus.com/media/catalog/product/_/n/_najdjwbwl5x9npvh.png?width=439&height=439&store=ar_EG&image-type=image",
+                tags: ["Ryzen 7 6800H", "RTX 3050", "16GB RAM", "شاشة 144Hz"],
+                summary: "أحدث وأقوى منصات الأداء مع رامات DDR5 فائقة السرعة ومعالج Ryzen 7 ثماني الأنوية؛ يشغل أعتى البرامج الهندسية والمعمارية Revit، Lumion، AutoCAD 3D، 3ds Max، وبرامج المونتاج 4K والرندر المعقد وأضخم بيئات العمل متعددة المهام بأقصى سرعة وثبات."
+            },
+            {
+                id: "DEV-18",
+                employee: "عمرو مصطفي",
+                role: "مسؤول التسويق و IT",
+                department: "إدارة التسويق و IT",
+                model: "Dell G5 15 (5500)",
+                brand: "Dell",
+                cpu: "Intel Core i7-10750H (Gen 10)",
+                ram: "16 GB DDR4",
+                ramVal: 16,
+                gpu: "NVIDIA GeForce GTX 1650 Ti (4GB)",
+                storage: "1 TB HDD",
+                screen: '15.6" Full HD 120Hz IPS',
+                battery: "متوسطة (40%) • ~40 دقيقة",
+                sr: "JKXMG63",
+                rating: 8.9,
+                custody: "unsigned",
+                custodyLabel: "عهدة غير موقعة (قيد التوقيع)",
+                image: "https://i.dell.com/is/image/DellContent/content/dam/ss2/product-images/dell-client-products/notebooks/g-series/15-5500/global-spi/ng/light/notebook-g5-15-5500-light-nt-relsize-500-ng.psd?qlt=95&fit=constrain,1&hei=225&wid=500&fmt=png-alpha",
+                tags: ["GTX 1650 Ti", "16GB RAM", "Core i7", "1TB HDD"],
+                summary: "قوة حوسبة عالية بمعالج Core i7 فئة H سداسي الأنوية مع رامات 16GB وكارت GTX 1650 Ti؛ يشغل بسلاسة برامج أدوبي للمونتاج والتصميم Photoshop، Illustrator، Premiere Pro، وبرامج النمذجة والتصميم الهندسي AutoCAD 2D/3D و Revit، وإدارة الأنظمة والشبكات المعقدة."
+            },
+            {
+                id: "DEV-19",
+                employee: "غير مستلم (متاح بالمخزن)",
+                role: "أصل متاح للتسليم",
+                department: "المخزن / IT",
+                model: "Dell G15 5515 Ryzen Edition",
+                brand: "Dell",
+                cpu: "AMD Ryzen 5 5600H (6-Core High-End)",
+                ram: "16 GB DDR4",
+                ramVal: 16,
+                gpu: "NVIDIA GeForce RTX 3050 (4GB)",
+                storage: "256 GB NVMe SSD",
+                screen: '15.6" Full HD 120Hz IPS',
+                battery: "متوسطة (50%) • ~ساعة واحدة",
+                sr: "7ZWVHQ3",
+                rating: 9.3,
+                custody: "stock",
+                custodyLabel: "متاح بالمخزن (غير مستلم)",
+                image: "https://i.dell.com/is/image/DellContent/content/dam/ss2/product-images/dell-client-products/notebooks/g-series/15-5515/spi/ng/laptop-g-15-5515-nt-relsize-500-ng-phantom-grey.psd?qlt=95&fit=constrain,1&hei=240&wid=500&fmt=png-alpha",
+                tags: ["Ryzen 5 5600H", "RTX 3050 4GB", "16GB RAM", "شاشة 120Hz"],
+                summary: "أداء هندسي عالي بقوة معالج Ryzen 5 سداسي الأنوية وكارت RTX 3050 مع رامات 16GB؛ يشغل برامج Revit و AutoCAD 3D و 3ds Max، وبرامج التصميم والمونتاج Photoshop و Premiere، ويتحمل ملفات العمل والبيانات الضخمة بسلاسة."
+            }
+        ];
+
+        let activeDept = "all";
+        let activeCustody = "all";
+        let searchQuery = "";
+        let sortOption = "default";
+
+        function initApp() {
+            renderDeptTabs();
+            renderCards();
+            renderInventoryTable();
+            bindEvents();
+            lucide.createIcons();
+        }
+
+        function renderDeptTabs() {
+            const counts = {};
+            devices.forEach(d => {
+                counts[d.department] = (counts[d.department] || 0) + 1;
+            });
+
+            const laptopsCount = devices.filter(d => !d.battery.includes('PC')).length;
+            const pcsCount = devices.filter(d => d.battery.includes('PC')).length;
+            const highPerfCount = devices.filter(d => d.rating >= 8.3 || d.ramVal >= 16).length;
+            const signedCount = devices.filter(d => d.custody === 'signed').length;
+            const unsignedCount = devices.filter(d => d.custody === 'unsigned').length;
+            const stockCount = devices.filter(d => d.custody === 'stock').length;
+
+            const elTotal = document.getElementById('kpi-total');
+            if (elTotal) elTotal.textContent = devices.length;
+
+            const elLaptops = document.getElementById('kpi-laptops');
+            if (elLaptops) elLaptops.textContent = laptopsCount;
+
+            const elPcs = document.getElementById('kpi-pcs');
+            if (elPcs) elPcs.textContent = pcsCount;
+
+            const elWorkstations = document.getElementById('kpi-workstations');
+            if (elWorkstations) elWorkstations.textContent = highPerfCount;
+
+            const elAllBadge = document.getElementById('count-all-badge');
+            if (elAllBadge) elAllBadge.textContent = devices.length;
+
+            const elCustodyAll = document.getElementById('count-custody-all');
+            if (elCustodyAll) elCustodyAll.textContent = devices.length;
+
+            const elCustodySigned = document.getElementById('count-custody-signed');
+            if (elCustodySigned) elCustodySigned.textContent = signedCount;
+
+            const elCustodyUnsigned = document.getElementById('count-custody-unsigned');
+            if (elCustodyUnsigned) elCustodyUnsigned.textContent = unsignedCount;
+
+            const elCustodyStock = document.getElementById('count-custody-stock');
+            if (elCustodyStock) elCustodyStock.textContent = stockCount;
+
+            const container = document.getElementById('deptTabsContainer');
+            const existingDynamic = container.querySelectorAll('.dynamic-tab');
+            existingDynamic.forEach(el => el.remove());
+
+            Object.keys(counts).forEach(deptName => {
+                const btn = document.createElement('div');
+                btn.className = 'dept-btn dynamic-tab';
+                btn.dataset.dept = deptName;
+                btn.innerHTML = `
+                    <span>${deptName}</span>
+                    <span class="dept-badge-count">${counts[deptName]}</span>
+                `;
+                container.appendChild(btn);
+            });
+        }
+
+        function renderInventoryTable() {
+            const tbody = document.getElementById('inventoryTableBody');
+            if (!tbody) return;
+
+            const now = new Date();
+            const dateStr = now.toLocaleDateString('ar-EG', { year: 'numeric', month: 'long', day: 'numeric' });
+            const elDate = document.getElementById('printDate');
+            if (elDate) elDate.textContent = dateStr;
+
+            const elPrintTotal = document.getElementById('printTotalCount');
+            if (elPrintTotal) elPrintTotal.textContent = devices.length;
+
+            tbody.innerHTML = devices.map((dev, idx) => {
+                const bInfo = getBatteryInfo(dev.battery);
+                let custodyBadge = '';
+                if (dev.custody === 'signed') {
+                    custodyBadge = `<span class="custody-badge signed" style="font-size: 0.72rem;">عهدة موقعة</span>`;
+                } else if (dev.custody === 'unsigned') {
+                    custodyBadge = `<span class="custody-badge unsigned" style="font-size: 0.72rem;">غير موقعة</span>`;
+                } else {
+                    custodyBadge = `<span class="custody-badge stock" style="font-size: 0.72rem;">بالمخزن</span>`;
+                }
+
+                return `
+                <tr>
+                    <td style="text-align: center; font-weight: 700; color: var(--text-muted);">${idx + 1}</td>
+                    <td style="font-weight: 800; color: var(--text-title); text-align: center;">${dev.employee}</td>
+                    <td><div class="role-cell">${dev.role}</div></td>
+                    <td><span class="dept-chip" style="font-size: 0.72rem; padding: 2px 6px;">${dev.department}</span></td>
+                    <td>${custodyBadge}</td>
+                    <td style="font-weight: 700; color: var(--text-title); text-align: center;">${dev.model}</td>
+                    <td class="spec-combined-cell">
+                        <div class="spec-combined-cpu">${dev.cpu}</div>
+                        <div class="spec-combined-sub">${dev.ram} • ${dev.storage} • ${dev.gpu}</div>
+                    </td>
+                    <td><span class="sr-badge">${dev.sr.toUpperCase()}</span></td>
+                    <td style="color: ${bInfo.color}; font-weight: 700; font-size: 0.76rem; text-align: center;">${dev.battery}</td>
+                </tr>
+                `;
+            }).join('');
+        }
+
+        function getFilteredList() {
+            return devices.filter(d => {
+                if (activeDept !== "all" && d.department !== activeDept) {
+                    return false;
+                }
+                if (activeCustody !== "all" && d.custody !== activeCustody) {
+                    return false;
+                }
+                if (searchQuery.trim() !== "") {
+                    const q = searchQuery.toLowerCase().trim();
+                    const combined = `${d.employee} ${d.role} ${d.department} ${d.model} ${d.sr} ${d.cpu} ${d.gpu} ${d.custodyLabel}`.toLowerCase();
+                    if (!combined.includes(q)) return false;
+                }
+                return true;
+            }).sort((a, b) => {
+                if (sortOption === "rating-desc") return b.rating - a.rating;
+                if (sortOption === "ram-desc") return b.ramVal - a.ramVal;
+                if (sortOption === "name-asc") return a.employee.localeCompare(b.employee, 'ar');
+                return 0;
+            });
+        }
+
+        function getCpuLogo(cpuStr) {
+            const str = (cpuStr || '').toLowerCase();
+            if (str.includes('i7') || str.includes('core i7')) {
+                return 'https://upload.wikimedia.org/wikipedia/commons/c/ce/Intel_Core_i7_Logo_2020.png';
+            }
+            if (str.includes('i5') || str.includes('core i5')) {
+                return 'https://upload.wikimedia.org/wikipedia/commons/f/fd/Intel-Core-5-Badge-2023.png';
+            }
+            if (str.includes('xeon')) {
+                return 'https://upload.wikimedia.org/wikipedia/commons/3/31/Intel-Xeon-Badge-2024.jpg?utm_source=ar.wikipedia.org&utm_campaign=index&utm_content=original';
+            }
+            if (str.includes('ryzen') || str.includes('amd')) {
+                return 'https://images.seeklogo.com/logo-png/50/2/amd-ryzen-logo-png_seeklogo-507514.png';
+            }
+            return '';
+        }
+
+        function getGpuLogo(gpuStr) {
+            const str = (gpuStr || '').toLowerCase();
+            if (str.includes('nvidia') || str.includes('rtx') || str.includes('gtx') || str.includes('quadro') || str.includes('mx') || str.includes('nivida')) {
+                return 'https://upload.wikimedia.org/wikipedia/sco/thumb/2/21/Nvidia_logo.svg/250px-Nvidia_logo.svg.png?utm_source=sco.wikipedia.org&utm_campaign=parser&utm_content=thumbnail';
+            }
+            if (str.includes('radeon') || str.includes('vega') || str.includes('redeon')) {
+                return 'https://images.seeklogo.com/logo-png/61/1/amd-radeon-780m-logo-png_seeklogo-614312.png';
+            }
+            return '';
+        }
+
+        function getBatteryInfo(bStr) {
+            const str = (bStr || '');
+            if (str.includes('PC')) {
+                return { icon: 'plug-zap', color: '#0284C7' };
+            }
+            if (str.includes('تالفة') || str.includes('(0%)') || str.includes('تحتاج بطارية') || str.includes('ضعيفة') || str.includes('10 دقائق') || str.includes('15%')) {
+                return { icon: 'battery-warning', color: '#DC2626' };
+            }
+            if (str.includes('متوسطة') || str.includes('40%') || str.includes('50%') || str.includes('40 دقيقة') || str.includes('ساعة واحدة') || str.includes('60 دقيقة')) {
+                return { icon: 'battery-medium', color: '#D97706' };
+            }
+            if (str.includes('جيدة') || str.includes('ممتازة') || str.includes('80%') || str.includes('85%') || str.includes('90%') || str.includes('ساعات')) {
+                return { icon: 'battery-charging', color: '#16A34A' };
+            }
+            return { icon: 'battery', color: '#64748B' };
+        }
+
+        function renderCards() {
+            const list = getFilteredList();
+            const grid = document.getElementById('cardsGrid');
+            const empty = document.getElementById('emptyState');
+            document.getElementById('resultsCount').textContent = list.length;
+
+            if (list.length === 0) {
+                grid.innerHTML = '';
+                empty.classList.add('show');
+                return;
+            }
+
+            empty.classList.remove('show');
+            grid.innerHTML = list.map(dev => {
+                const cpuLogo = getCpuLogo(dev.cpu);
+                const gpuLogo = getGpuLogo(dev.gpu);
+                const bInfo = getBatteryInfo(dev.battery);
+
+                let custodyBadge = '';
+                if (dev.custody === 'signed') {
+                    custodyBadge = `<span class="custody-badge signed"><i data-lucide="shield-check" style="width: 12px; height: 12px;"></i> عهدة موقعة</span>`;
+                } else if (dev.custody === 'unsigned') {
+                    custodyBadge = `<span class="custody-badge unsigned"><i data-lucide="clock" style="width: 12px; height: 12px;"></i> غير موقعة</span>`;
+                } else {
+                    custodyBadge = `<span class="custody-badge stock"><i data-lucide="package" style="width: 12px; height: 12px;"></i> بالمخزن</span>`;
+                }
+
+                return `
+                <div class="device-card">
+                    <div class="cad-crosshair tl"></div>
+                    <div class="cad-crosshair tr"></div>
+                    <div class="card-top">
+                        <div class="emp-profile">
+                            <div class="emp-info">
+                                <div style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap;">
+                                    <span class="emp-name" title="${dev.employee}">${dev.employee}</span>
+                                    ${custodyBadge}
+                                </div>
+                                <span class="emp-role" title="${dev.role}">${dev.role}</span>
+                            </div>
+                        </div>
+                        <span class="dept-chip">${dev.department}</span>
+                    </div>
+
+                    <div class="card-visual">
+                        <div class="rating-badge">
+                            <i data-lucide="star"></i>
+                            <span>${dev.rating}</span>
+                        </div>
+                        <span class="brand-badge">${dev.brand}</span>
+
+                        <div class="hw-stickers-row">
+                            ${cpuLogo ? `<img src="${cpuLogo}" class="hw-sticker" title="${dev.cpu}" alt="CPU">` : ''}
+                            ${gpuLogo ? `<img src="${gpuLogo}" class="hw-sticker" title="${dev.gpu}" alt="GPU">` : ''}
+                        </div>
+
+                        <img src="${dev.image}" alt="${dev.model}" onerror="this.onerror=null; this.src='https://i.dell.com/is/image/DellContent//content/dam/ss2/product-images/dell-client-products/notebooks/inspiron-notebooks/15-3580/global-spi/notebook-inspiron-15-3580-nt-2sp-black-relsize-500-ng.psd?fmt=jpg';">
+                    </div>
+
+                    <div class="card-content">
+                        <div class="model-header">
+                            <h3 class="model-name">${dev.model}</h3>
+                            <button class="sr-copy-btn" onclick="copySerial('${dev.sr}')" title="انقر لنسخ السيريال">
+                                <i data-lucide="copy" style="width: 13px; height: 13px;"></i>
+                                <span style="direction: ltr;">SR: ${dev.sr.toUpperCase()}</span>
+                            </button>
+                        </div>
+
+                        <div class="spec-list">
+                            <div class="spec-row">
+                                <div class="spec-label-group">
+                                    ${cpuLogo ? `<img src="${cpuLogo}" class="hw-badge-icon" alt="CPU">` : `<i data-lucide="cpu"></i>`}
+                                    <span>المعالج:</span>
+                                </div>
+                                <span class="spec-val-ltr" title="${dev.cpu}">${dev.cpu}</span>
+                            </div>
+
+                            <div class="spec-row">
+                                <div class="spec-label-group">
+                                    <i data-lucide="circuit-board"></i>
+                                    <span>الذاكرة (RAM):</span>
+                                </div>
+                                <span class="spec-val-ltr highlight">${dev.ram}</span>
+                            </div>
+
+                            <div class="spec-row">
+                                <div class="spec-label-group">
+                                    <i data-lucide="hard-drive"></i>
+                                    <span>التخزين:</span>
+                                </div>
+                                <span class="spec-val-ltr">${dev.storage}</span>
+                            </div>
+
+                            <div class="spec-row">
+                                <div class="spec-label-group">
+                                    ${gpuLogo ? `<img src="${gpuLogo}" class="hw-badge-icon" alt="GPU">` : `<i data-lucide="monitor"></i>`}
+                                    <span>كارت الشاشة:</span>
+                                </div>
+                                <span class="spec-val-ltr" title="${dev.gpu}">${dev.gpu}</span>
+                            </div>
+
+                            <div class="spec-row">
+                                <div class="spec-label-group">
+                                    <i data-lucide="${bInfo.icon}" style="color: ${bInfo.color};"></i>
+                                    <span>البطارية:</span>
+                                </div>
+                                <span class="spec-val-ltr" style="font-weight: 700; color: ${bInfo.color}; font-size: 0.8rem;">${dev.battery}</span>
+                            </div>
+                        </div>
+
+                        <div class="feature-chips-row">
+                            ${dev.tags.map(t => `<span class="feature-tag">${t}</span>`).join('')}
+                        </div>
+
+                        <div class="card-action">
+                            <button class="btn-inspect-device" onclick="showModal('${dev.id}')">
+                                <i data-lucide="file-text" style="width: 16px; height: 16px;"></i>
+                                <span>تقرير المواصفات الكاملة</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                `;
+            }).join('');
+
+            lucide.createIcons();
+        }
+
+        function bindEvents() {
+            document.getElementById('searchInput').addEventListener('input', (e) => {
+                searchQuery = e.target.value;
+                renderCards();
+            });
+
+            document.getElementById('sortSelect').addEventListener('change', (e) => {
+                sortOption = e.target.value;
+                renderCards();
+            });
+
+            document.getElementById('deptTabsContainer').addEventListener('click', (e) => {
+                const btn = e.target.closest('.dept-btn');
+                if (!btn) return;
+
+                document.querySelectorAll('#deptTabsContainer .dept-btn').forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                activeDept = btn.dataset.dept;
+                renderCards();
+            });
+
+            const custodyContainer = document.getElementById('custodyTabsContainer');
+            if (custodyContainer) {
+                custodyContainer.addEventListener('click', (e) => {
+                    const btn = e.target.closest('.custody-btn');
+                    if (!btn) return;
+
+                    custodyContainer.querySelectorAll('.custody-btn').forEach(b => b.classList.remove('active'));
+                    btn.classList.add('active');
+                    activeCustody = btn.dataset.custody;
+                    renderCards();
+                });
+            }
+
+            document.getElementById('closeModalBtn').addEventListener('click', hideModal);
+            document.getElementById('modalOverlay').addEventListener('click', (e) => {
+                if (e.target.id === 'modalOverlay') hideModal();
+            });
+        }
+
+        function showModal(id) {
+            const dev = devices.find(d => d.id === id);
+            if (!dev) return;
+
+            const cpuLogo = getCpuLogo(dev.cpu);
+            const gpuLogo = getGpuLogo(dev.gpu);
+            const bInfo = getBatteryInfo(dev.battery);
+
+            let custodyIcon = dev.custody === 'signed' ? 'shield-check' : (dev.custody === 'unsigned' ? 'clock' : 'package');
+
+            const modalBody = document.getElementById('modalContentBody');
+            modalBody.innerHTML = `
+                <div style="display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid var(--border); padding-bottom: 16px; margin-bottom: 20px;">
+                    <div>
+                        <h2 style="font-size: 1.3rem; font-weight: 800; color: var(--text-title);">${dev.employee}</h2>
+                        <div style="font-size: 0.85rem; color: var(--primary); font-weight: 700; margin-top: 4px; display: flex; align-items: center; gap: 8px; flex-wrap: wrap;">
+                            <span>${dev.role} • <span style="color: var(--text-muted);">${dev.department}</span></span>
+                            <span class="custody-badge ${dev.custody}">
+                                <i data-lucide="${custodyIcon}" style="width: 12px; height: 12px;"></i>
+                                ${dev.custodyLabel}
+                            </span>
+                        </div>
+                    </div>
+                    <div style="text-align: left;">
+                        <div style="font-family: var(--font-en); font-size: 1.6rem; font-weight: 900; color: var(--primary); line-height: 1;">${dev.rating} <span style="font-size: 0.85rem; color: var(--text-muted);">/10</span></div>
+                        <span style="font-size: 0.75rem; color: var(--text-muted); font-weight: 600;">تقييم الأداء</span>
+                    </div>
+                </div>
+
+                <div style="display: flex; flex-direction: column; align-items: center; background: #FFFFFF; border: 1px solid var(--border); border-radius: 14px; padding: 20px; margin-bottom: 20px; position: relative;">
+                    <div class="hw-stickers-row" style="bottom: 12px; left: 14px;">
+                        ${cpuLogo ? `<img src="${cpuLogo}" class="hw-sticker" title="${dev.cpu}" alt="CPU">` : ''}
+                        ${gpuLogo ? `<img src="${gpuLogo}" class="hw-sticker" title="${dev.gpu}" alt="GPU">` : ''}
+                    </div>
+                    <img src="${dev.image}" style="max-height: 150px; object-fit: contain; margin-bottom: 14px; mix-blend-mode: multiply;">
+                    <h3 style="font-family: var(--font-en); font-size: 1.15rem; font-weight: 800; color: var(--text-title);">${dev.model}</h3>
+                    
+                    <div style="margin-top: 10px; display: flex; align-items: center; gap: 8px;">
+                        <span style="font-size: 0.85rem; color: var(--text-muted); font-weight: 600;">الرقم التسلسلي (SR):</span>
+                        <button class="sr-copy-btn" onclick="copySerial('${dev.sr}')">
+                            <i data-lucide="copy" style="width: 12px; height: 12px;"></i>
+                            <span style="direction: ltr;">${dev.sr.toUpperCase()}</span>
+                        </button>
+                    </div>
+                </div>
+
+                <h4 style="font-size: 0.95rem; font-weight: 800; color: var(--text-title); margin-bottom: 12px;">المواصفات التقنية الشاملة:</h4>
+
+                <div style="display: flex; flex-direction: column; gap: 8px; margin-bottom: 20px;">
+                    <div class="spec-row" style="padding: 10px 14px;">
+                        <span style="font-size: 0.85rem; color: var(--text-muted); font-weight: 600; display: flex; align-items: center; gap: 6px;">
+                            ${cpuLogo ? `<img src="${cpuLogo}" class="hw-badge-icon">` : ''}
+                            المعالج (CPU):
+                        </span>
+                        <strong class="spec-val-ltr">${dev.cpu}</strong>
+                    </div>
+
+                    <div class="spec-row" style="padding: 10px 14px;">
+                        <span style="font-size: 0.85rem; color: var(--text-muted); font-weight: 600;">الذاكرة العشوائية (RAM):</span>
+                        <strong class="spec-val-ltr" style="color: var(--primary);">${dev.ram}</strong>
+                    </div>
+
+                    <div class="spec-row" style="padding: 10px 14px;">
+                        <span style="font-size: 0.85rem; color: var(--text-muted); font-weight: 600;">وحدة التخزين (Storage):</span>
+                        <strong class="spec-val-ltr">${dev.storage}</strong>
+                    </div>
+
+                    <div class="spec-row" style="padding: 10px 14px;">
+                        <span style="font-size: 0.85rem; color: var(--text-muted); font-weight: 600; display: flex; align-items: center; gap: 6px;">
+                            ${gpuLogo ? `<img src="${gpuLogo}" class="hw-badge-icon">` : ''}
+                            كارت الشاشة (GPU):
+                        </span>
+                        <strong class="spec-val-ltr">${dev.gpu}</strong>
+                    </div>
+
+                    <div class="spec-row" style="padding: 10px 14px;">
+                        <span style="font-size: 0.85rem; color: var(--text-muted); font-weight: 600;">الشاشة (Display):</span>
+                        <strong class="spec-val-ltr">${dev.screen}</strong>
+                    </div>
+
+                    <div class="spec-row" style="padding: 10px 14px;">
+                        <span style="font-size: 0.85rem; color: var(--text-muted); font-weight: 600; display: flex; align-items: center; gap: 6px;">
+                            <i data-lucide="${bInfo.icon}" style="width: 16px; height: 16px; color: ${bInfo.color};"></i>
+                            حالة البطارية / الطاقة:
+                        </span>
+                        <strong class="spec-val-ltr" style="color: ${bInfo.color};">${dev.battery}</strong>
+                    </div>
+                </div>
+
+                <div style="background: var(--primary-bg); border: 1px solid var(--primary-border); border-radius: 12px; padding: 14px;">
+                    <span style="font-size: 0.82rem; font-weight: 800; color: var(--primary); display: block; margin-bottom: 4px;">ملاحظات الاستخدام والكفاءة:</span>
+                    <p style="font-size: 0.88rem; color: var(--text-body); line-height: 1.6;">${dev.summary}</p>
+                </div>
+            `;
+
+            document.getElementById('modalOverlay').classList.add('active');
+            lucide.createIcons();
+        }
+
+        function hideModal() {
+            document.getElementById('modalOverlay').classList.remove('active');
+        }
+
+        function copySerial(sr) {
+            navigator.clipboard.writeText(sr.toUpperCase()).then(() => {
+                const toast = document.getElementById('copyToast');
+                document.getElementById('toastMessage').textContent = `تم نسخ السيريال ${sr.toUpperCase()} بنجاح!`;
+                toast.classList.add('show');
+                setTimeout(() => {
+                    toast.classList.remove('show');
+                }, 2400);
+            });
+        }
+
+        document.addEventListener('DOMContentLoaded', initApp);
+    </script>
+</body>
+</html>
