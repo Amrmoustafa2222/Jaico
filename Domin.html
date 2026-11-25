@@ -1,0 +1,1050 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>قائمة الدومينات والعلامات التجارية | Nahr Development</title>
+    
+    <!-- Clean Luxury Typography -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Alexandria:wght@400;500;600;700;800&family=Cairo:wght@400;600;700;800;900&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <style>
+        :root {
+            /* Ultra-Clean Minimal White Palette (Apple / Swiss Design) */
+            --bg: #F8FAFC;
+            --surface: #FFFFFF;
+            --surface-hover: #F1F5F9;
+            --border: #E2E8F0;
+            --border-focus: #0F172A;
+            
+            --text-main: #0F172A;
+            --text-sub: #475569;
+            --text-muted: #94A3B8;
+            
+            --primary: #0F172A;
+            --emerald: #059669;
+            --emerald-bg: #ECFDF5;
+            --emerald-border: #A7F3D0;
+            
+            --gold: #D97706;
+            --gold-bg: #FEF3C7;
+            --gold-border: #FDE68A;
+            
+            --radius-card: 16px;
+            --radius-pill: 999px;
+            --shadow: 0 2px 8px rgba(15, 23, 42, 0.04), 0 1px 2px rgba(15, 23, 42, 0.02);
+            --shadow-hover: 0 12px 24px -4px rgba(15, 23, 42, 0.08), 0 4px 8px -2px rgba(15, 23, 42, 0.03);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        body {
+            background-color: var(--bg);
+            color: var(--text-main);
+            font-family: 'Cairo', 'Alexandria', sans-serif;
+            min-height: 100vh;
+            line-height: 1.5;
+            padding-bottom: 80px;
+        }
+
+        .en-font {
+            font-family: 'Outfit', sans-serif;
+            letter-spacing: 0.5px;
+        }
+
+        .container {
+            max-width: 1240px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Minimal Header */
+        header.site-header {
+            background: #FFFFFF;
+            border-bottom: 1px solid var(--border);
+            padding: 16px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-wrap {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 16px;
+        }
+
+        .logo-box {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .logo-img {
+            height: 32px;
+            object-fit: contain;
+        }
+
+        .logo-text h1 {
+            font-size: 15px;
+            font-weight: 800;
+            color: var(--text-main);
+            line-height: 1.2;
+        }
+
+        .logo-text p {
+            font-size: 11px;
+            color: var(--text-muted);
+            font-weight: 600;
+        }
+
+        .header-actions {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .btn-header {
+            background: #FFFFFF;
+            border: 1px solid var(--border);
+            color: var(--text-main);
+            font-family: inherit;
+            font-size: 12.5px;
+            font-weight: 700;
+            padding: 7px 14px;
+            border-radius: var(--radius-pill);
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            transition: all 0.2s ease;
+        }
+
+        .btn-header:hover {
+            background: var(--surface-hover);
+            border-color: #CBD5E1;
+        }
+
+        .btn-header.active {
+            background: #0F172A;
+            color: #FFFFFF;
+            border-color: #0F172A;
+        }
+
+        .btn-header .badge {
+            background: rgba(15, 23, 42, 0.08);
+            color: inherit;
+            padding: 1px 7px;
+            border-radius: 999px;
+            font-size: 11px;
+            font-family: 'Outfit', sans-serif;
+        }
+
+        .btn-header.active .badge {
+            background: rgba(255, 255, 255, 0.2);
+            color: #FFFFFF;
+        }
+
+        /* Page Intro (Brief & Elegant) */
+        .page-intro {
+            padding: 32px 0 20px 0;
+            display: flex;
+            align-items: flex-end;
+            justify-content: space-between;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .intro-text h2 {
+            font-size: clamp(22px, 3.2vw, 30px);
+            font-weight: 800;
+            color: var(--text-main);
+            line-height: 1.25;
+            margin-bottom: 6px;
+        }
+
+        .intro-text p {
+            font-size: 14px;
+            color: var(--text-sub);
+        }
+
+        .count-pill {
+            background: #FFFFFF;
+            border: 1px solid var(--border);
+            padding: 6px 14px;
+            border-radius: var(--radius-pill);
+            font-size: 12.5px;
+            font-weight: 700;
+            color: var(--text-sub);
+            white-space: nowrap;
+        }
+
+        .count-pill strong {
+            color: var(--text-main);
+            font-family: 'Outfit', sans-serif;
+        }
+
+        /* Search & Filter Bar */
+        .filter-section {
+            background: #FFFFFF;
+            border: 1px solid var(--border);
+            border-radius: var(--radius-card);
+            padding: 16px;
+            margin-bottom: 24px;
+            box-shadow: var(--shadow);
+        }
+
+        .search-box {
+            position: relative;
+            margin-bottom: 14px;
+        }
+
+        .search-box i {
+            position: absolute;
+            right: 14px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--text-muted);
+            font-size: 15px;
+        }
+
+        .search-input {
+            width: 100%;
+            padding: 11px 40px 11px 36px;
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            background: #F8FAFC;
+            color: var(--text-main);
+            font-family: inherit;
+            font-size: 14px;
+            outline: none;
+            transition: all 0.2s ease;
+        }
+
+        .search-input:focus {
+            background: #FFFFFF;
+            border-color: var(--border-focus);
+            box-shadow: 0 0 0 3px rgba(15, 23, 42, 0.05);
+        }
+
+        .clear-search-btn {
+            position: absolute;
+            left: 12px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: none;
+            border: none;
+            color: var(--text-muted);
+            font-size: 14px;
+            cursor: pointer;
+            display: none;
+        }
+
+        .clear-search-btn.show { display: block; }
+
+        /* Filter Chips (Horizontal Scroll on Mobile) */
+        .chips-scroll {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            overflow-x: auto;
+            white-space: nowrap;
+            padding-bottom: 4px;
+            -webkit-overflow-scrolling: touch;
+            scrollbar-width: none;
+        }
+        .chips-scroll::-webkit-scrollbar { display: none; }
+
+        .chip-label {
+            font-size: 12px;
+            font-weight: 700;
+            color: var(--text-muted);
+            margin-left: 4px;
+        }
+
+        .chip {
+            background: #F8FAFC;
+            border: 1px solid var(--border);
+            color: var(--text-sub);
+            padding: 6px 14px;
+            border-radius: var(--radius-pill);
+            font-family: inherit;
+            font-size: 12.5px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.15s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .chip:hover {
+            background: var(--surface-hover);
+            border-color: #CBD5E1;
+            color: var(--text-main);
+        }
+
+        .chip.active {
+            background: #0F172A;
+            border-color: #0F172A;
+            color: #FFFFFF;
+        }
+
+        .chip .num {
+            font-size: 11px;
+            font-family: 'Outfit', sans-serif;
+            opacity: 0.8;
+        }
+
+        /* View Toggle (Grid / List) */
+        .view-controls {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 18px;
+            font-size: 13px;
+            color: var(--text-muted);
+            font-weight: 600;
+        }
+
+        .view-switcher {
+            display: flex;
+            background: #F1F5F9;
+            padding: 3px;
+            border-radius: 8px;
+            gap: 2px;
+        }
+
+        .view-btn {
+            background: transparent;
+            border: none;
+            color: var(--text-muted);
+            padding: 5px 10px;
+            border-radius: 6px;
+            font-size: 13px;
+            cursor: pointer;
+            transition: all 0.15s ease;
+        }
+
+        .view-btn.active {
+            background: #FFFFFF;
+            color: var(--text-main);
+            box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+        }
+
+        /* Modern Minimalist Cards Grid */
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
+            gap: 16px;
+        }
+
+        .brand-card {
+            background: #FFFFFF;
+            border: 1px solid var(--border);
+            border-radius: var(--radius-card);
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            position: relative;
+            box-shadow: var(--shadow);
+            transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+        }
+
+        .brand-card:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-hover);
+            border-color: #CBD5E1;
+        }
+
+        /* Card Top Bar */
+        .card-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 14px;
+        }
+
+        .pill-length {
+            font-size: 11px;
+            font-weight: 700;
+            padding: 3px 9px;
+            border-radius: var(--radius-pill);
+            background: #F1F5F9;
+            color: var(--text-sub);
+            font-family: 'Outfit', sans-serif;
+        }
+
+        .pill-length.ultra-short {
+            background: var(--gold-bg);
+            color: var(--gold);
+            border: 1px solid var(--gold-border);
+        }
+
+        .btn-heart {
+            background: none;
+            border: none;
+            color: #CBD5E1;
+            font-size: 17px;
+            cursor: pointer;
+            padding: 4px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: transform 0.15s ease, color 0.15s ease;
+        }
+
+        .btn-heart:hover {
+            transform: scale(1.15);
+            color: #EF4444;
+        }
+
+        .btn-heart.active {
+            color: #EF4444;
+        }
+
+        /* Card Center: Clean Typography */
+        .brand-main {
+            text-align: center;
+            padding: 10px 0 14px 0;
+            border-bottom: 1px solid #F1F5F9;
+            margin-bottom: 12px;
+        }
+
+        .brand-name-en {
+            font-size: 24px;
+            font-weight: 800;
+            color: var(--text-main);
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            line-height: 1.1;
+            margin-bottom: 4px;
+        }
+
+        .brand-name-ar {
+            font-size: 17px;
+            font-weight: 700;
+            color: var(--text-sub);
+            margin-bottom: 10px;
+        }
+
+        .domain-tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: var(--emerald-bg);
+            color: var(--emerald);
+            border: 1px solid var(--emerald-border);
+            padding: 3px 10px;
+            border-radius: var(--radius-pill);
+            font-size: 12px;
+            font-family: 'Outfit', sans-serif;
+            font-weight: 700;
+            direction: ltr;
+        }
+
+        .dot-available {
+            width: 6px;
+            height: 6px;
+            background: var(--emerald);
+            border-radius: 50%;
+        }
+
+        /* Card Bottom: Meaning / Note (Concise 1 line) */
+        .brand-note {
+            font-size: 12.5px;
+            color: var(--text-sub);
+            line-height: 1.5;
+            margin-bottom: 16px;
+            min-height: 38px;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        /* Card Actions (Compact & Modern) */
+        .card-footer {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .btn-copy {
+            flex: 1;
+            background: #F8FAFC;
+            border: 1px solid var(--border);
+            color: var(--text-main);
+            font-family: inherit;
+            font-size: 12px;
+            font-weight: 700;
+            padding: 8px 12px;
+            border-radius: 8px;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+            transition: all 0.15s ease;
+        }
+
+        .btn-copy:hover {
+            background: #0F172A;
+            color: #FFFFFF;
+            border-color: #0F172A;
+        }
+
+        .btn-audio {
+            background: #F8FAFC;
+            border: 1px solid var(--border);
+            color: var(--text-sub);
+            width: 35px;
+            height: 35px;
+            border-radius: 8px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 13px;
+            transition: all 0.15s ease;
+        }
+
+        .btn-audio:hover {
+            background: #E2E8F0;
+            color: var(--text-main);
+        }
+
+        /* Clean List / Table View */
+        .list-view-wrap {
+            display: none;
+            background: #FFFFFF;
+            border: 1px solid var(--border);
+            border-radius: var(--radius-card);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+        }
+
+        .list-view-wrap.active { display: block; }
+
+        .minimal-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 13.5px;
+            text-align: right;
+        }
+
+        .minimal-table th {
+            background: #F8FAFC;
+            color: var(--text-muted);
+            font-weight: 700;
+            font-size: 12px;
+            padding: 12px 18px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .minimal-table td {
+            padding: 14px 18px;
+            border-bottom: 1px solid #F1F5F9;
+            vertical-align: middle;
+        }
+
+        .minimal-table tr:hover {
+            background: #F8FAFC;
+        }
+
+        /* Minimal Toast */
+        .toast {
+            position: fixed;
+            bottom: 24px;
+            left: 50%;
+            transform: translateX(-50%) translateY(80px);
+            background: #0F172A;
+            color: #FFFFFF;
+            padding: 10px 20px;
+            border-radius: var(--radius-pill);
+            font-size: 13px;
+            font-weight: 700;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            z-index: 99999;
+            opacity: 0;
+            transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+            pointer-events: none;
+        }
+
+        .toast.show {
+            transform: translateX(-50%) translateY(0);
+            opacity: 1;
+        }
+
+        /* Mobile Adjustments (Clean & Tight) */
+        @media (max-width: 640px) {
+            .container { padding: 0 14px; }
+            .page-intro { padding: 20px 0 14px 0; }
+            .filter-section { padding: 12px; margin-bottom: 18px; }
+            
+            /* Responsive 2-column or 1-column cards on small mobile */
+            .cards-grid {
+                grid-template-columns: 1fr;
+                gap: 12px;
+            }
+
+            .brand-card {
+                padding: 16px;
+            }
+
+            .brand-name-en {
+                font-size: 22px;
+            }
+
+            .brand-name-ar {
+                font-size: 15px;
+            }
+
+            .header-wrap {
+                gap: 8px;
+            }
+
+            .btn-header span:not(.badge) {
+                display: none;
+            }
+            .btn-header {
+                padding: 7px 10px;
+            }
+        }
+
+        /* Print formatting */
+        @media print {
+            body { background: #FFFFFF !important; }
+            header.site-header, .filter-section, .view-controls, .card-footer, .btn-heart {
+                display: none !important;
+            }
+            .cards-grid {
+                display: grid !important;
+                grid-template-columns: repeat(3, 1fr) !important;
+                gap: 12px !important;
+            }
+            .brand-card {
+                border: 1px solid #CBD5E1 !important;
+                box-shadow: none !important;
+                break-inside: avoid;
+                page-break-inside: avoid;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <main class="container" style="padding-top: 20px;">
+        <!-- Search & Filter Controls -->
+        <section class="filter-section">
+            <div class="search-box">
+                <i class="fa-solid fa-magnifying-glass"></i>
+                <input type="text" id="searchInput" class="search-input" placeholder="ابحث باسم العلامة بالإنجليزية أو بالعربي أو الأصل..." oninput="onSearchChange(this.value)">
+                <button class="clear-search-btn" id="clearSearchBtn" onclick="clearSearch()" title="مسح">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            </div>
+
+            <div class="chips-scroll">
+                <button class="chip active" data-len="all" onclick="filterLength('all', this)">الكل (46)</button>
+                <button class="chip" data-len="6" onclick="filterLength('6', this)">6 أحرف (4)</button>
+                <button class="chip" data-len="7" onclick="filterLength('7', this)">7 أحرف (26)</button>
+                <button class="chip" data-len="8" onclick="filterLength('8', this)">8 أحرف (13)</button>
+                <button class="chip" data-len="9+" onclick="filterLength('9+', this)">9+ أحرف (3)</button>
+                
+                <button class="chip" id="btnFavFilter" onclick="toggleFavoritesFilter()">
+                    <i class="fa-solid fa-heart" style="color: #EF4444;"></i>
+                    المفضلة (<span id="favCountBadge">0</span>)
+                </button>
+
+                <button class="chip" onclick="copyShortlist()" title="نسخ الأسماء المحددة">
+                    <i class="fa-solid fa-copy"></i>
+                    نسخ المختار
+                </button>
+
+                <button class="chip" onclick="window.print()" title="طباعة">
+                    <i class="fa-solid fa-print"></i>
+                    طباعة
+                </button>
+            </div>
+        </section>
+
+        <!-- View Controls & Switcher -->
+        <div class="view-controls">
+            <span>المعروض: <strong id="visibleCount" style="color: var(--text-main); font-family: 'Outfit';">46</strong> اسم</span>
+            <div class="view-switcher">
+                <button class="view-btn active" id="btnGrid" onclick="setView('grid')" title="عرض الكروت">
+                    <i class="fa-solid fa-grip"></i>
+                </button>
+                <button class="view-btn" id="btnList" onclick="setView('list')" title="عرض القائمة">
+                    <i class="fa-solid fa-list"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Clean Cards Grid -->
+        <div class="cards-grid" id="cardsGrid">
+            <!-- Dynamically populated -->
+        </div>
+
+        <!-- Clean Minimal Table List View -->
+        <div class="list-view-wrap" id="listView">
+            <table class="minimal-table">
+                <thead>
+                    <tr>
+                        <th style="width: 40px;">#</th>
+                        <th>اسم البراند (EN)</th>
+                        <th>الرسم العربي</th>
+                        <th>النطاق</th>
+                        <th>الطول</th>
+                        <th>الدلالة والأصل</th>
+                        <th style="width: 100px; text-align: center;">إجراءات</th>
+                    </tr>
+                </thead>
+                <tbody id="tableBody">
+                    <!-- Dynamically populated -->
+                </tbody>
+            </table>
+        </div>
+    </main>
+
+    <!-- Clean Notification Toast -->
+    <div class="toast" id="toast">
+        <i class="fa-solid fa-check" style="color: #10B981;"></i>
+        <span id="toastMsg">تم النسخ بنجاح</span>
+    </div>
+
+    <!-- Core Interactive Logic & 46 Clean Items -->
+    <script>
+        // 46 Pure Brand Names Dataset (Concise & Accurate)
+        const BRANDS = [
+            { id: 1, name: "NICAVI", ar: "نيكافي", len: 6, note: "مشتق من Nova أو New (جديد) مع صياغة نغمية خفيفة." },
+            { id: 2, name: "SOVETTO", ar: "سوفيتو", len: 7, note: "مشتق من Sovereign (السيادة والاستقلالية) بصياغة إيطالية." },
+            { id: 3, name: "ZACELLI", ar: "زاسيللي", len: 7, note: "مشتق من Zenith (القمة) بصياغة إيطالية خفيفة." },
+            { id: 4, name: "PUCCELLO", ar: "بوتشيللو", len: 8, note: "مشتق من Pure (النقاء) بصياغة إيطالية متزنة." },
+            { id: 5, name: "LEMANNE", ar: "ليمان", len: 7, note: "مشتق من Liber (الحرية) بصياغة فرنسية ناعمة." },
+            { id: 6, name: "DESIANE", ar: "ديزيان", len: 7, note: "مشتق من Design (التصميم والقصد) بنهاية نغمية." },
+            { id: 7, name: "AVORDEA", ar: "أفورديا", len: 7, note: "مشتق من Avant (الطليعة) بنهاية نغمية ممتدة." },
+            { id: 8, name: "Romasso", ar: "روماسو", len: 7, note: "مشتق من Roam (الانطلاق الحر) بصياغة إيطالية." },
+            { id: 9, name: "Daviane", ar: "دافيان", len: 7, note: "مشتق من Dare (الجرأة) بنهاية ومفتوحة." },
+            { id: 10, name: "DELOREE", ar: "ديلوري", len: 7, note: "مشتق من De وLore (الإرث والحكاية) بامتداد صوتي." },
+            { id: 11, name: "SOPELLI", ar: "سوبيلي", len: 7, note: "مشتق من Sole (الفردي والمميز) بصياغة إيطالية." },
+            { id: 12, name: "Delosse", ar: "ديلوس", len: 7, note: "مشتق من De وLoose (التحرر والانسيابية)." },
+            { id: 13, name: "ZANDELLI", ar: "زانديللي", len: 8, note: "مشتق من Zenith (القمة) وAndare (المضي قدماً)." },
+            { id: 14, name: "FRAVANTI", ar: "فرافانتي", len: 8, note: "مشتق من Free (الحر) وAvanti (للأمام)." },
+            { id: 15, name: "ROSCELIO", ar: "روسكيلو", len: 8, note: "مشتق من Rise (الارتقاء) وCielo (الأفق المفتوح)." },
+            { id: 16, name: "RICARIAN", ar: "ريكاريان", len: 8, note: "مشتق من Re-create (إعادة الابتكار)." },
+            { id: 17, name: "RIMANTINI", ar: "ريمانتيني", len: 9, note: "مشتق من Re-imagine (إعادة التخيل) بصياغة إيطالية." },
+            { id: 18, name: "Vagotier", ar: "فاجوتييه", len: 8, note: "مشتق من Vagabond (التجوال الحر) بصياغة فرنسية." },
+            { id: 19, name: "EFFELIO", ar: "إيفيللو", len: 7, note: "مشتق من Effortless (بدون تكلف) بنهاية نغمية." },
+            { id: 20, name: "EURESSA", ar: "يوريسا", len: 7, note: "مشتق من Eureka (الاكتشاف والظفر) بنهاية نغمية." },
+            { id: 21, name: "Desconi", ar: "ديسكوني", len: 7, note: "مشتق من De-construct (التفكيك الإبداعي)." },
+            { id: 22, name: "Ambelore", ar: "أمبيلور", len: 8, note: "مشتق من Ambi (الشمول) وLore (الحكاية والامتداد)." },
+            { id: 23, name: "DELARMA", ar: "ديلارما", len: 7, note: "مشتق من De وAlma (الروح والجوهر)." },
+            { id: 24, name: "LABENOVA", ar: "لابينوفا", len: 8, note: "مشتق من Liber (حر) مع Nova (جديد ومتجدد)." },
+            { id: 25, name: "Roussada", ar: "روسادا", len: 8, note: "مشتق من Route (المسار والاتجاه)." },
+            { id: 26, name: "Faddello", ar: "فاديللو", len: 8, note: "مشتق من Fade (التلاشي والانسياب) بصياغة إيطالية." },
+            { id: 27, name: "Risolli", ar: "ريسوللي", len: 7, note: "مشتق من Rise (النهوض والارتقاء) بنهاية إيطالية." },
+            { id: 28, name: "ALIELLO", ar: "ألييللو", len: 7, note: "مشتق من Alius (المختلف والفريد) بصياغة إيطالية." },
+            { id: 29, name: "LeToise", ar: "لوتواز", len: 7, note: "مشتق من Le وToi (أنت بالفرنسية)." },
+            { id: 30, name: "Okaveli", ar: "أوكافيلي", len: 7, note: "مشتق من Origin (الأصل) بصياغة نغمية خفيفة." },
+            { id: 31, name: "Izmani", ar: "إيزماني", len: 6, note: "مشتق من Is (الكينونة) مع Zaman (الزمن والحضور)." },
+            { id: 32, name: "Izzeta", ar: "إيزيتا", len: 6, note: "مشتق من Is (الوجود) مع صياغة نغمية حادة." },
+            { id: 33, name: "Livardo", ar: "ليفاردو", len: 7, note: "مشتق من Live (الحياة) مع Ardor (الشغف)." },
+            { id: 34, name: "Esouria", ar: "إيسوريا", len: 7, note: "مشتق من Essence (الجوهر والنقاء)." },
+            { id: 35, name: "DESIARO", ar: "ديسيارو", len: 7, note: "مشتق من Desire (الإرادة والتوجه)." },
+            { id: 36, name: "SOLIQUETTE", ar: "سوليكيت", len: 10, note: "مشتق من Sole (الفردي) وEtiquette (الذوق والأسلوب)." },
+            { id: 37, name: "Bouvoir", ar: "بوفوار", len: 7, note: "مشتق من Pouvoir (القدرة والإرادة) بصياغة فرنسية." },
+            { id: 38, name: "ALINALE", ar: "ألينال", len: 7, note: "مشتق من Align (التناغم والاتساق)." },
+            { id: 39, name: "Junisia", ar: "جونيسيا", len: 7, note: "مشتق من Journey (الرحلة) بنهاية نغمية لطيفة." },
+            { id: 40, name: "Afandra", ar: "أفاندرا", len: 7, note: "مشتق من Afar (بعيداً عن المألوف والتقليد)." },
+            { id: 41, name: "Satiana", ar: "ساتيانا", len: 7, note: "مشتق من Satisfy (الاكتفاء الذاتي والرضا)." },
+            { id: 42, name: "Avasaire", ar: "أفاساير", len: 8, note: "مشتق من Avant (الطليعة) مع Savoir (المعرفة)." },
+            { id: 43, name: "Panesque", ar: "بانيسك", len: 8, note: "مشتق من Pan (شامل وحر) بنهاية فنية مميزة." },
+            { id: 44, name: "YAMBARI", ar: "يامباري", len: 7, note: "مشتق من Your وAmbition (طموحك الخاص)." },
+            { id: 45, name: "METZVONI", ar: "ميتزفوني", len: 8, note: "مشتق من Meta (التحول) مع Voce (الصوت والحضور)." },
+            { id: 46, name: "REZERU", ar: "ريزيرو", len: 6, note: "مشتق من Re وZero (البدء من نقطة الصفر بأسلوب جديد)." }
+        ];
+
+        // State
+        let searchQuery = "";
+        let lengthFilter = "all";
+        let onlyFavorites = false;
+        let currentView = "grid";
+        let favorites = JSON.parse(localStorage.getItem('nahr_selected_favs') || '[]');
+
+        // Init
+        document.addEventListener('DOMContentLoaded', () => {
+            updateFavBadge();
+            render();
+        });
+
+        // Filter Logic
+        function getFiltered() {
+            return BRANDS.filter(item => {
+                // Search
+                if (searchQuery.trim()) {
+                    const q = searchQuery.toLowerCase().trim();
+                    const mName = item.name.toLowerCase().includes(q);
+                    const mAr = item.ar.includes(q);
+                    const mNote = item.note.toLowerCase().includes(q);
+                    if (!mName && !mAr && !mNote) return false;
+                }
+
+                // Length
+                if (lengthFilter !== 'all') {
+                    if (lengthFilter === '9+') {
+                        if (item.len < 9) return false;
+                    } else if (item.len !== parseInt(lengthFilter)) {
+                        return false;
+                    }
+                }
+
+                // Favorites
+                if (onlyFavorites) {
+                    if (!favorites.includes(item.id)) return false;
+                }
+
+                return true;
+            });
+        }
+
+        // Render
+        function render() {
+            const list = getFiltered();
+            document.getElementById('visibleCount').textContent = list.length;
+
+            renderCards(list);
+            renderTable(list);
+        }
+
+        function renderCards(list) {
+            const grid = document.getElementById('cardsGrid');
+            if (list.length === 0) {
+                grid.innerHTML = `
+                    <div style="grid-column: 1/-1; text-align: center; padding: 50px 20px; background: #FFFFFF; border-radius: 16px; border: 1px dashed var(--border);">
+                        <i class="fa-solid fa-search" style="font-size: 32px; color: var(--text-muted); margin-bottom: 12px;"></i>
+                        <h3 style="font-size: 16px; margin-bottom: 4px;">لم يتم العثور على أي أسماء تطابق بحثك</h3>
+                        <p style="color: var(--text-muted); font-size: 13px;">جرب تغيير كلمة البحث أو إلغاء تصفية الطول.</p>
+                    </div>
+                `;
+                return;
+            }
+
+            grid.innerHTML = list.map(item => {
+                const isFav = favorites.includes(item.id);
+                const isUltraShort = item.len === 6;
+                const domain = item.name.toLowerCase() + ".com";
+
+                return `
+                    <div class="brand-card">
+                        <div class="card-header">
+                            <span class="pill-length ${isUltraShort ? 'ultra-short' : ''}">${item.len} أحرف</span>
+                            <button class="btn-heart ${isFav ? 'active' : ''}" onclick="toggleFav(${item.id}, event)" title="${isFav ? 'إزالة من المفضلة' : 'حفظ بالمفضلة'}">
+                                <i class="${isFav ? 'fa-solid' : 'fa-regular'} fa-heart"></i>
+                            </button>
+                        </div>
+
+                        <div class="brand-main">
+                            <div class="brand-name-en en-font">${item.name}</div>
+                            <div class="brand-name-ar">${item.ar}</div>
+                            <div class="domain-tag">
+                                <span class="dot-available"></span>
+                                <span>${domain}</span>
+                            </div>
+                        </div>
+
+                        <div class="brand-note">
+                            ${item.note}
+                        </div>
+
+                        <div class="card-footer">
+                            <button class="btn-copy" onclick="copyText('${domain}')">
+                                <i class="fa-solid fa-copy"></i>
+                                <span>نسخ الدومين</span>
+                            </button>
+                            <button class="btn-audio" onclick="playAudio('${item.name}')" title="استماع للنطق">
+                                <i class="fa-solid fa-volume-high"></i>
+                            </button>
+                        </div>
+                    </div>
+                `;
+            }).join('');
+        }
+
+        function renderTable(list) {
+            const tbody = document.getElementById('tableBody');
+            tbody.innerHTML = list.map(item => {
+                const isFav = favorites.includes(item.id);
+                const domain = item.name.toLowerCase() + ".com";
+
+                return `
+                    <tr>
+                        <td style="color: var(--text-muted); font-family: 'Outfit'; font-size: 12px;">${item.id}</td>
+                        <td><strong class="en-font" style="font-size: 16px;">${item.name}</strong></td>
+                        <td style="color: var(--text-sub); font-weight: 700;">${item.ar}</td>
+                        <td><span class="domain-tag"><span class="dot-available"></span> ${domain}</span></td>
+                        <td><span class="pill-length">${item.len} أحرف</span></td>
+                        <td style="color: var(--text-sub); font-size: 13px;">${item.note}</td>
+                        <td style="text-align: center;">
+                            <div style="display: flex; gap: 6px; justify-content: center;">
+                                <button class="btn-audio" style="width: 30px; height: 30px; font-size: 11px;" onclick="playAudio('${item.name}')" title="استماع">
+                                    <i class="fa-solid fa-volume-high"></i>
+                                </button>
+                                <button class="btn-audio" style="width: 30px; height: 30px; font-size: 11px;" onclick="copyText('${domain}')" title="نسخ">
+                                    <i class="fa-solid fa-copy"></i>
+                                </button>
+                                <button class="btn-heart ${isFav ? 'active' : ''}" style="width: 30px; height: 30px; font-size: 14px;" onclick="toggleFav(${item.id}, event)" title="تفضيل">
+                                    <i class="${isFav ? 'fa-solid' : 'fa-regular'} fa-heart"></i>
+                                </button>
+                            </div>
+                        </td>
+                    </tr>
+                `;
+            }).join('');
+        }
+
+        // Search Handlers
+        function onSearchChange(val) {
+            searchQuery = val;
+            const btn = document.getElementById('clearSearchBtn');
+            if (val.trim()) {
+                btn.classList.add('show');
+            } else {
+                btn.classList.remove('show');
+            }
+            render();
+        }
+
+        function clearSearch() {
+            document.getElementById('searchInput').value = "";
+            searchQuery = "";
+            document.getElementById('clearSearchBtn').classList.remove('show');
+            render();
+        }
+
+        // Length Filter
+        function filterLength(len, btn) {
+            lengthFilter = len;
+            document.querySelectorAll('[data-len]').forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+            render();
+        }
+
+        // Favorites
+        function toggleFavoritesFilter() {
+            onlyFavorites = !onlyFavorites;
+            const btn = document.getElementById('btnFavFilter');
+            if (onlyFavorites) {
+                btn.classList.add('active');
+            } else {
+                btn.classList.remove('active');
+            }
+            render();
+        }
+
+        function toggleFav(id, e) {
+            if (e) e.stopPropagation();
+            const idx = favorites.indexOf(id);
+            if (idx > -1) {
+                favorites.splice(idx, 1);
+                showToast("تمت الإزالة من المفضلة");
+            } else {
+                favorites.push(id);
+                showToast("تمت الإضافة إلى المفضلة");
+            }
+            localStorage.setItem('nahr_selected_favs', JSON.stringify(favorites));
+            updateFavBadge();
+            render();
+        }
+
+        function updateFavBadge() {
+            document.getElementById('favCountBadge').textContent = favorites.length;
+        }
+
+        function copyShortlist() {
+            if (favorites.length === 0) {
+                showToast("لم تقم بتحديد أي اسم للمفضلة بعد");
+                return;
+            }
+            const favItems = BRANDS.filter(b => favorites.includes(b.id));
+            let text = "✨ قائمة الأسماء المختارة من العرض:\n\n";
+            favItems.forEach((item, i) => {
+                text += `${i + 1}. ${item.name} (${item.ar}) — ${item.name.toLowerCase()}.com [${item.len} أحرف]\n   • ${item.note}\n\n`;
+            });
+
+            navigator.clipboard.writeText(text).then(() => {
+                showToast("تم نسخ القائمة المختارة بنجاح للمشاركة!");
+            });
+        }
+
+        // Audio Speech
+        function playAudio(name) {
+            if ('speechSynthesis' in window) {
+                window.speechSynthesis.cancel();
+                const utter = new SpeechSynthesisUtterance(name);
+                utter.rate = 0.88;
+                utter.pitch = 1.0;
+                window.speechSynthesis.speak(utter);
+                showToast(`تشغيل صوتي: ${name}`);
+            } else {
+                showToast("المتصفح لا يدعم النطق الصوتي");
+            }
+        }
+
+        // Copy Helper
+        function copyText(str) {
+            navigator.clipboard.writeText(str).then(() => {
+                showToast(`تم نسخ: ${str}`);
+            });
+        }
+
+        // Toast Helper
+        function showToast(msg) {
+            const toast = document.getElementById('toast');
+            document.getElementById('toastMsg').textContent = msg;
+            toast.classList.add('show');
+            setTimeout(() => {
+                toast.classList.remove('show');
+            }, 2000);
+        }
+
+        // View Switcher
+        function setView(mode) {
+            currentView = mode;
+            const grid = document.getElementById('cardsGrid');
+            const list = document.getElementById('listView');
+            const btnG = document.getElementById('btnGrid');
+            const btnL = document.getElementById('btnList');
+
+            if (mode === 'grid') {
+                grid.style.display = 'grid';
+                list.classList.remove('active');
+                btnG.classList.add('active');
+                btnL.classList.remove('active');
+            } else {
+                grid.style.display = 'none';
+                list.classList.add('active');
+                btnL.classList.add('active');
+                btnG.classList.remove('active');
+            }
+        }
+    </script>
+</body>
+</html>
